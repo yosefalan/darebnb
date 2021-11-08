@@ -36,8 +36,6 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
-
-console.log("***************", user)
   return (
     <div className="buttonContainer"
     onClick={openMenu}
@@ -55,14 +53,16 @@ console.log("***************", user)
       </div>
         <div className="dropdownContent">
           {user ?
+          <>
             <a onClick={logout} href="/">
             Log Out
-            </a> :
+            </a>
+            <a> Post a Place</a></> :
             <div className="modalLinks">
-              <a><LoginFormModal /></a>
-              <a><SignupFormModal /></a>
+              <LoginFormModal />
+              <SignupFormModal />
             </div>
-            }
+          }
         </div>
     </div>
   );
