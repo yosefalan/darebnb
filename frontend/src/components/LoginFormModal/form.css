@@ -1,12 +1,14 @@
-
+/* 
 #signupButton {
-  justify-self: flex-end;
+  background-color: black;
+  border-color: #FFFFFF;
+  border-width: 1px;
   color: #FFFFFF;
-  background-color: #FF5500;
-  margin-right: 10px;
+  justify-self: flex-end;
   border-radius: 2px;
+  box-sizing: content-box;
+  margin-left: 510px;
   margin-top: 10px;
-  margin-left: 20px;
 }
 
 #loginButton {
@@ -19,7 +21,7 @@
   box-sizing: content-box;
   margin-left: 510px;
   margin-top: 10px;
-}
+} */
 
 .formContainer {
   height: 500px;
@@ -46,7 +48,7 @@
   margin: 10px 0px 10px 0px
 }
 
-#loginSubmitButton,
+/* #loginSubmitButton,
 #signupSubmitButton {
   color: #FFFFFF;
   background-color: #FF5500;
@@ -56,4 +58,4 @@
   height: 30px;
   width: 100%;
   margin: 10px 0px 10px 0px
-}
+} */

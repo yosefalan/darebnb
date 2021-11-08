@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-// import * as sessionActions from "../../store/session";
 import { signup } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import styles from '../LoginFormModal/form.css'
+import  '../LoginFormModal/form.css'
 
 function SignupForm() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -91,7 +90,7 @@ function SignupForm() {
             />
         <button type="submit" id="signupSubmitButton">Create Account</button>
       </form>
-      <div>
+      {/* <div>
         {user && (
           <div>
             <h1>{user.username}</h1>
@@ -102,7 +101,7 @@ function SignupForm() {
             />
           </div>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }
