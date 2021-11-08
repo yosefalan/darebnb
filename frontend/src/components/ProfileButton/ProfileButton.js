@@ -4,6 +4,7 @@ import * as sessionActions from "../../store/session";
 import LoginFormModal from '../LoginFormModal/index';
 import SignupFormModal from '../SignupFormModal/index';
 import '../ProfileButton/ProfileButton.css'
+import NewSpotModal from "../NewSpotModal/NewSpotModal";
 
 
 function ProfileButton({ user }) {
@@ -57,7 +58,7 @@ function ProfileButton({ user }) {
             <a onClick={logout} href="/">
             Log Out
             </a>
-            <a> Post a Place</a></> :
+            <NewSpotModal /></> :
             <div className="modalLinks">
               <LoginFormModal />
               <SignupFormModal />
