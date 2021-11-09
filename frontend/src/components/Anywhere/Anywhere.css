@@ -5,6 +5,13 @@
   align-items: center;
 }
 
+.anywhereCenterContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+
 .anywhereNavContainer {
   height: 80px;
   position: relative;
@@ -17,11 +24,17 @@
   display: grid;
   grid-template-areas:
   "tile | tile | tile | tile"
-  /* "tile | tile | tile | tile"
   "tile | tile | tile | tile"
-  "tile | tile | tile | tile" */
+  "tile | tile | tile | tile"
+  "tile | tile | tile | tile"
 }
 
 .tiles {
   grid-area: tile;
+  width: 285px;
+}
+
+.anywhereHeading {
+  width: 1200px;
+  height: 80px;
 }

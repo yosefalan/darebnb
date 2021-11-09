@@ -9,16 +9,14 @@ function Anywhere() {
     spots.push(i)
   }
 
-  console.log("@@@@@@@@@@@@@@", spots)
   return (
-    <>
       <div className="anywhereMainContainer">
-        <div className="anywhereCenterContainer"></div>
+        <div className="anywhereCenterContainer">
           <div className="anywhereNavContainer">
             <AltNavigation/>
           </div>
-        <div className="anywhereTilesContainer">
-          <h1>Welcome to Anywhere!</h1>
+          <h1 className="anywhereHeading">Welcome to Anywhere!</h1>
+          <div className="anywhereTilesContainer">
             {spots.map((spot, idx) => {
               return (
                 <div className="tiles">
@@ -26,9 +24,9 @@ function Anywhere() {
                   <h2>{spot}</h2>
                 </div>
               )})}
+          </div>
         </div>
       </div>
-    </>
   );
 }
 
