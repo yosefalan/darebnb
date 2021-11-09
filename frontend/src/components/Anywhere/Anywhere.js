@@ -19,7 +19,7 @@ function Anywhere() {
           <div className="anywhereTilesContainer">
             {spots.map((spot, idx) => {
               return (
-                <div className="tiles">
+                <div className={`tiles${idx}`}>
                   <AnywhereTile spot={spot}/>
                   <h2>{spot}</h2>
                 </div>
