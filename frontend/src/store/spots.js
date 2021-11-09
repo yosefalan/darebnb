@@ -12,7 +12,7 @@ const getSpots = (spots) => {
   };
 };
 
-const getUserspots = (spots) => {
+const getUserSpots = (spots) => {
   return {
     type: GET_USER_SPOTS,
     spots,
@@ -22,31 +22,31 @@ const getUserspots = (spots) => {
 const getTrack = (spot) => {
   return {
     type: GET_SPOT,
-    spots,
+    spot,
   };
 };
 
-const addTrack = spot => ({
+const addSpot = spot => ({
   type: ADD_SPOT,
   spot
 })
 
-export const fetchspots = () => async (dispatch) => {
+export const fetchSpots = () => async (dispatch) => {
   const res = await csrfFetch('/api/spots')
   if (res.ok) {
     const spots = await res.json();
-    dispatch(getspots(spots));
+    dispatch(getSpots(spots));
   } else {
     throw res;
   }
 }
 
 
-export const fetchUserspots = (id) => async (dispatch) => {
+export const fetchUserSpots = (id) => async (dispatch) => {
   const res = await csrfFetch(`/api/users/${id}/spots`)
   if (res.ok) {
     const spots = await res.json();
-    dispatch(getUserspots(spots, id));
+    dispatch(getUserSpots(spots, id));
   } else {
     throw res;
   }
@@ -63,22 +63,38 @@ export const fetchTrack = (id) => async (dispatch) => {
   }
 }
 
-export const uploadTrack = (data) => async (dispatch) => {
+export const addNewSpot = (data) => async (dispatch) => {
   const {
-    title,
-    artist,
-    album,
-    art,
-    url,
+    images,
+    userId,
+    name,
+    address,
+    city,
+    state,
+    country,
+    lat,
+    lng,
+    price
   } = data;
+  console.log("***********", data)
   const formData = new FormData();
-  formData.append('title', title);
-  formData.append('artist', artist);
-  formData.append('album', album);
-  formData.append('art', art);
-  formData.append('url', url);
+  formData.append('userId', userId);
+  formData.append('name', name);
+  formData.append('address', address);
+  formData.append('city', city);
+  formData.append('country', country);
+  formData.append('state', state);
+  formData.append('lat', lat);
+  formData.append('lng', lng);
+  formData.append('price', price);
 
-  const res = await csrfFetch(`/api/spots/upload`, {
+  if (images && images.length !== 0) {
+    for (var i = 0; i < images.length; i++) {
+      formData.append("images", images[i]);
+    }
+  }
+
+  const res = await csrfFetch(`/api/spots/add`, {
     method: "POST",
     headers: {
       "Content-Type": "multipart/form-data",
@@ -86,33 +102,33 @@ export const uploadTrack = (data) => async (dispatch) => {
     body: formData
   });
 
-  const newTrack = await res.json();
-  dispatch(addTrack(newTrack));
+  const newSpot = await res.json();
+  dispatch(addNewSpot(newSpot));
 };
 
 const initialState = {}
 
 const musicReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_spots: {
+    case GET_SPOTS: {
       const allspots = {};
       action.spots.forEach(track => {
         return allspots[track.id] = track;
       });
       return allspots;
     }
-    case GET_USER_spots: {
+    case GET_USER_SPOTS: {
       const allspots = {};
       action.spots.forEach(track => {
         return allspots[track.id] = track;
       });
       return allspots;
     }
-    case GET_TRACK: {
+    case GET_SPOT: {
       const track = {}
       return { ...state, track: action.track }
     }
-    case ADD_TRACK:
+    case ADD_SPOT:
       return { ...state, [action.track.id]:action.track};
 
       default:

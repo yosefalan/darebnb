@@ -1,20 +1,13 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { Spot } = require('../../db/models');
-const { check } = require('express-validator');
-const { handleValidationErrors } = require('../../utils/validation');
-const { singlePublicFileUpload, singleMulterUpload, multiplePublicFileUpload } = require('../../awsS3');
+const { Spot, Image } = require('../../db/models');
+const { singlePublicFileUpload, singleMulterUpload, multiplePublicFileUpload, multipleMulterUpload } = require('../../awsS3');
 
 const router = express.Router();
 
-
-
-
-
 router.post(
   "/add",
-  singleMulterUpload("images"),
+  multipleMulterUpload("images"),
   asyncHandler(async (req, res) => {
     const {
       userId,
@@ -28,18 +21,35 @@ router.post(
       price,
       images
     } = req.body;
-    const images = await singlePublicFileUpload(req.file);
-    const user = await Spot.create({
-      username,
-      email,
-      password,
-      imageURL,
+    const imagesURL = await multiplePublicFileUpload(req.files);
+    const spot = await Spot.create({
+      userId,
+      name,
+      address,
+      city,
+      state,
+      country,
+      lat,
+      lng,
+      price,
     });
 
-    setTokenCookie(res, user);
-
+    const spotId = spot.id
+    console.log("XXXXXXXXXXXXXX", spotId)
+    const urls = await
+    imagesURL.map(url => {
+    Image.create({
+        spotId,
+        url
+      })
+    })
     return res.json({
-      user,
+      spot
     });
   })
 );
+
+
+
+
+module.exports = router;

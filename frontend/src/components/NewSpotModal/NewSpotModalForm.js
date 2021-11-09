@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { addNewSpot } from "../../store/spots";
+
 function NewSpotModalForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
@@ -14,13 +16,14 @@ function NewSpotModalForm() {
   const [lng, setLng] = useState(null);
   const [price, setPrice] = useState(null);
   const [errors, setErrors] = useState([]);
+  const [images, setImages] = useState([]);
 
   if (!sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let newErrors = [];
-    dispatch(uploadTrack({
+    dispatch(addNewSpot({
       userId,
       address,
       city,
@@ -29,7 +32,8 @@ function NewSpotModalForm() {
       lat,
       lng,
       name,
-      price
+      price,
+      images
     }))
     .then(() => {
       setAddress("");
@@ -39,6 +43,7 @@ function NewSpotModalForm() {
       setLat(null);
       setLng(null);
       setPrice(null);
+      setImages(null);
     })
     .catch(async (res) => {
       const data = await res.json();
@@ -49,10 +54,10 @@ function NewSpotModalForm() {
       });
   };
 
-  // const updateFile = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) uploadTrack(file);
-  // };
+     const updateFiles = (e) => {
+      const files = e.target.files;
+      setImages(files);
+    };
 
 
   // const handleSubmit = (e) => {
@@ -71,7 +76,7 @@ function NewSpotModalForm() {
   return (
     <div className="formContainer">
       <form
-      /* <form onSubmit={handleSubmit} */
+      onSubmit={handleSubmit}
       className="form">
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -147,18 +152,14 @@ function NewSpotModalForm() {
             onChange={(e) => setPrice(e.target.value)}
             required
             />
-          {/* <input
-            type="text"
-            className="field"
-            placeholder="Album Image URL"
-            autocomplete="new-password"
-            value={art}
-            onChange={(e) => setArt(e.target.value)}
-            /> */}
-            <input type="file"
-            // onChange={updateFile}
-            />
-            <button type="submit">Upload Image</button>
+            <label>
+            Multiple Upload
+            <input
+              type="file"
+              multiple
+              onChange={updateFiles} />
+          </label>
+            <button type="submit">Upload Images</button>
         <button type="submit" id="submitButton">Submit</button>
       </form>
     </div>
