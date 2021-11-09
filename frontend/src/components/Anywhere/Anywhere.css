@@ -1,0 +1,27 @@
+.anywhereMainContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+
+.anywhereNavContainer {
+  height: 80px;
+  position: relative;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+}
+
+.anywhereTilesContainer {
+  width: 1200px;
+  position: relative;
+  display: grid;
+  grid-template-areas:
+  "tile | tile | tile | tile"
+  /* "tile | tile | tile | tile"
+  "tile | tile | tile | tile"
+  "tile | tile | tile | tile" */
+}
+
+.tiles {
+  grid-area: tile;
+}

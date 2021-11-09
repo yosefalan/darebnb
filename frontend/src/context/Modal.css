@@ -9,7 +9,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 #modal-background {
@@ -26,19 +25,19 @@
   flex-direction: column;
   position: absolute;
   background-color:white;
-  border-radius: 3px;
-  /* -webkit-animation-name: animateModal;
-  -webkit-animation-duration: 0.3s;
+  border-radius: 10px;
+  -webkit-animation-name: animateModal;
+  -webkit-animation-duration: 1s;
   animation-name: animateModal;
-  animation-duration: 0.3s */
+  animation-duration: 1s
 }
 
-/* @-webkit-keyframes animateModal {
-  from {top:-500px; opacity:0}
-  to {top:0; opacity:1}
+@-webkit-keyframes animateModal {
+  from {bottom: -300px; opacity:0}
+  to {bottom: 135px; opacity:1}
 }
 
 @keyframes animateModal {
-  from {top:-500px; opacity:0}
-  to {top:0; opacity:1}
-} */
+  from {bottom:-300px; opacity:0}
+  to {bottom: 135px; opacity:1}
+}

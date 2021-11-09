@@ -1,3 +1,4 @@
+
 .landingImgContainer {
   width: 100%;
   height: 70vh;
@@ -5,21 +6,21 @@
   position: absolute;
 }
 
+
 .landingImgGrad {
   width: 100%;
   height: 100%;
   position: absolute;
   background: linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, .75))
 }
+
 .landingImg {
   width: 100%;
   position: absolute;
-  background: linear-gradient(rgb(0, 0, 0, .8), rgb(0, 0, 0, .4))
   }
 
 .navContainer {
   position: absolute;
-  margin-top: 20px;
 }
 
 .imgWrap {
@@ -61,4 +62,32 @@
   -moz-transform: scale(1.2);
   opacity: 0;
 }
+}
+
+.anywhereContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 50vw;
+  position: absolute;
+  color: white;
+}
+.anywhereButton {
+  display: flex;
+  height: 50px;
+  width: 200px;
+  background-color: white;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.anywhereLink {
+  font-size: 25px;
+  font-weight: bold;
+  color:  linear-gradient(
+    90deg, #6F019C 0%, #C6017E 135.12%);
+  text-decoration: none;
 }

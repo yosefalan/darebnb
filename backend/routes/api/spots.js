@@ -33,9 +33,7 @@ router.post(
       lng,
       price,
     });
-
     const spotId = spot.id
-    console.log("XXXXXXXXXXXXXX", spotId)
     const urls = await
     imagesURL.map(url => {
     Image.create({

@@ -17,6 +17,8 @@
   border-radius: 25px;
   overflow: hidden;
   justify-content: center;
+  border: 2px solid #D9D9D9;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
 }
 
 
@@ -71,8 +73,7 @@
   color: #999999;
 }
 
-/* .hamburgerMenu:hover
-.profileButtonImage:hover */
+
 .buttonContainer:hover
 .dropdownContent {
   display: block;

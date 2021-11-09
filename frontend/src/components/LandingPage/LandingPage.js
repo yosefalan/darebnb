@@ -1,7 +1,9 @@
 import Navigation from "../Navigation/Navigation";
 import '../LandingPage/LandingPage.css'
+import { NavLink } from 'react-router-dom';
 
-function App() {
+
+function LandingPage() {
 
   return (
     <>
@@ -13,9 +15,13 @@ function App() {
       </div>
       <div className="navContainer">
         <Navigation/>
+        <div className="anywhereContainer">
+          <h2 className="somewhere">Just take me somewhere...</h2>
+          <div className="anywhereButton"><a className="anywhereLink" href="/anywhere">Anywhere</a></div>
+        </div>
       </div>
     </>
   );
 }
 
-export default App;
+export default LandingPage;

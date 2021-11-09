@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { addNewSpot } from "../../store/spots";
+import '../LoginFormModal/form.css';
 
 function NewSpotModalForm() {
   const dispatch = useDispatch();
@@ -152,15 +153,18 @@ function NewSpotModalForm() {
             onChange={(e) => setPrice(e.target.value)}
             required
             />
-            <label>
-            Multiple Upload
-            <input
-              type="file"
-              multiple
-              onChange={updateFiles} />
-          </label>
-            <button type="submit">Upload Images</button>
-        <button type="submit" id="submitButton">Submit</button>
+            <div className="buttonsContainer">
+              <label className="uploadLabel">
+              Image Upload
+              <input
+                type="file"
+                multiple
+                onChange={updateFiles} />
+                </label>
+                <button type="submit" id="submitButton"
+                className="spotSubmitButton"
+                >Submit</button>
+            </div>
       </form>
     </div>
   );
