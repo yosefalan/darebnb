@@ -14,8 +14,8 @@
   align-items: center;
 }
 
-.homeLogo {
-  width: 1100px;
+.navLogoContainer {
+  width: 1200px;
   justify-self: flex-start;
 }
 

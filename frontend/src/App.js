@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import LandingPage from './components/LandingPage/LandingPage'
 import Anywhere from './components/Anywhere/Anywhere'
+import SpotPage from "./components/SpotPage/SpotPage";
 
 // import { useDispatch } from "react-redux";
 // import { Route, Switch } from "react-router-dom";
@@ -19,8 +20,12 @@ function App() {
         <LandingPage />
       </Route>
 
-      <Route path='/anywhere'>
+      <Route eaxact path='/anywhere'>
         <Anywhere />
+      </Route>
+
+      <Route path='/spots/:id'>
+        <SpotPage />
       </Route>
     </>
   );

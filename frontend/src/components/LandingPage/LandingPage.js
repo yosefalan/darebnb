@@ -16,7 +16,7 @@ function LandingPage() {
       <div className="navContainer">
         <Navigation/>
         <div className="anywhereContainer">
-          <h2 className="somewhere">Just take me somewhere...</h2>
+          <h2 className="somewhere">Just take me...</h2>
           <div className="anywhereButton"><a className="anywhereLink" href="/anywhere">Anywhere</a></div>
         </div>
       </div>

@@ -6,7 +6,6 @@
   position: absolute;
 }
 
-
 .landingImgGrad {
   width: 100%;
   height: 100%;
@@ -54,6 +53,7 @@
   animation-timing-function: ease-in;
   opacity: 1;
 }
+
 100% {
   transform: scale(1.2);
   -ms-transform: scale(1.2);
@@ -74,20 +74,23 @@
   position: absolute;
   color: white;
 }
+
 .anywhereButton {
   display: flex;
   height: 50px;
-  width: 200px;
+  width: 150px;
   background-color: white;
-  border-radius: 15px;
+  border-radius: 25px;
   align-items: center;
   justify-content: center;
+  /* background: linear-gradient(0.25turn, #6F019C, #C6017E 75%); */
+  /* background-clip: text; */
+  background: radial-gradient(circle at center center, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%)
 }
 
 .anywhereLink {
+  color: white;
   font-size: 25px;
   font-weight: bold;
-  color:  linear-gradient(
-    90deg, #6F019C 0%, #C6017E 135.12%);
   text-decoration: none;
 }
