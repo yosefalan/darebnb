@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     city: {
-      allowNull: false,
       type: DataTypes.STRING(50),
     },
     state: {
@@ -32,7 +31,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(50),
     },
     price: {
-      allowNull: false,
       type: DataTypes.DECIMAL
     },
   }, {});

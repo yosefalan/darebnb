@@ -3,27 +3,27 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Spots', [
+    return queryInterface.bulkInsert('Reviews', [
       {
-        email: 'demo@user.io',
-        username: 'Demo-lition',
-        hashedPassword: bcrypt.hashSync('password'),
+        userId: 1,
+        spotId: 2,
+        review: 'I spent a whole weekend there.  Only saw a few thousand snakes and got bitten like five times.  Kinda dissappointing.',
       },
       {
-        email: faker.internet.email(),
-        username: 'FakeUser1',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        userId: 3,
+        spotId: 2,
+        review: "Went on a research trip with a group of scientists and survived.  Can't say the same for the others...",
       },
       {
-        email: faker.internet.email(),
-        username: 'FakeUser2',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        userId: 2,
+        spotId: 2,
+        review: 'By the head of Medusa!'
       },
     ], {});
   },
 
   down: (queryInterface, Sequelize) => {
     const Op = Sequelize.Op;
-    return queryInterface.bulkDelete('Spots', null, {});
+    return queryInterface.bulkDelete('Reviews', null, {});
   }
 };
