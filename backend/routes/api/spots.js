@@ -5,6 +5,14 @@ const { singlePublicFileUpload, singleMulterUpload, multiplePublicFileUpload, mu
 
 const router = express.Router();
 
+
+router.get('/',
+asyncHandler(async(req, res) => {
+  const spots = await Spot.findAll();
+  return res.json([spots]);
+}));
+
+
 router.post(
   "/add",
   multipleMulterUpload("images"),

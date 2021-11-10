@@ -12,6 +12,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
+      name: {
+        allowNull: false,
+        type: Sequelize.STRING(50)
+      },
+      description: {
+        allowNull: false,
+        type: Sequelize.STRING(500)
+      },
       address: {
         type: Sequelize.STRING
       },
@@ -39,7 +47,6 @@ module.exports = {
         type: Sequelize.STRING(50)
       },
       price: {
-        allowNull: false,
         type: Sequelize.DECIMAL
       },
       createdAt: {

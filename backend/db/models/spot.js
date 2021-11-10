@@ -5,6 +5,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    name: {
+      allowNull: false,
+      type: DataTypes.STRING(50),
+    },
+    description: {
+      allowNull: false,
+      type: DataTypes.STRING(500),
+    },
     address:{
       type: DataTypes.STRING,
     },
@@ -25,10 +33,6 @@ module.exports = (sequelize, DataTypes) => {
     lng: {
       allowNull: false,
       type: DataTypes.DECIMAL,
-    },
-    name: {
-      allowNull: false,
-      type: DataTypes.STRING(50),
     },
     price: {
       type: DataTypes.DECIMAL
