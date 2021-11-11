@@ -115,7 +115,6 @@ const spotsReducer = (state = initialState, action) => {
       }
       case GET_SPOT: {
         const spot = action.spot
-        console.log("|||||||||||||", spot)
         return { ...state, spot}
       }
     case ADD_SPOT:

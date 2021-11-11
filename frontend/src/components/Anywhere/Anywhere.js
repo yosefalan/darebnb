@@ -29,7 +29,7 @@ function Anywhere() {
                     <img className="gridImg" src={spot.Images[0].url}></img>
                   </div>
                 <NavLink className="anywhereTextLink" to={`/spots/${spot.id}`}>{spot.name}</NavLink>
-                <p className="anywhereText">{spot.city && spot.city} {spot.state && spot.state}
+                <p className="anywhereText">{spot.city && spot.city}{spot?.city ? "," : null} {spot.state && spot.state}{spot?.state ? ", " : null}
                 {spot.country && spot.country} </p>
                 </div>
               )})}

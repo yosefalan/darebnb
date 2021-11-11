@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import LandingPage from './components/LandingPage/LandingPage'
 import Anywhere from './components/Anywhere/Anywhere'
 import SpotPage from "./components/SpotPage/SpotPage";
-
+import UpdateSpotModalForm from "./components/UpdateSpot/UpdateSpotForm";
 // import { useDispatch } from "react-redux";
 // import { Route, Switch } from "react-router-dom";
 // import SignupForm from "./components/SignupFormModal/SignupForm";
@@ -27,6 +27,10 @@ function App() {
       <Route path='/spots/:id'>
         <SpotPage />
       </Route>
+
+      {/* <Route path='/test'>
+        <NewSpotModalForm />
+      </Route> */}
     </>
   );
 }
