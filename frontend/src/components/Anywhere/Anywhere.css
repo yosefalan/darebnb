@@ -26,7 +26,6 @@
   gap: 20px;
 }
 
-
 .anywhereTile {
   width: 285px;
   height: 285px;
@@ -35,8 +34,17 @@
   overflow: hidden;
  }
 
-
 .anywhereHeading {
   width: 1200px;
   height: 80px;
+}
+
+.anywhereTextLink {
+  margin-top: 50px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.anywhereTextLoc {
+  margin-top: 5px;
 }

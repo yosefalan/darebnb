@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Spot, Image } = require('../../db/models');
+const { Spot, Image, User, Review } = require('../../db/models');
 const { singlePublicFileUpload, singleMulterUpload, multiplePublicFileUpload, multipleMulterUpload } = require('../../awsS3');
 
 const router = express.Router();
@@ -59,6 +59,19 @@ router.post(
   })
 );
 
+router.get('/:id(\\d+)',
+  asyncHandler(async(req, res) => {
+
+    const spot = await Spot.findByPk((+req.params.id),
+    {
+      include: [
+        { model: Review },
+        { model: Image },
+        { model: User },
+      ]
+    });
+    return res.json(spot);
+  }));
 
 
 

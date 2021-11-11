@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import AltNavigation from "../AltNavigation/AltNavigation";
 import '../Anywhere/Anywhere.css'
 import { fetchSpots } from "../../store/spots";
@@ -11,8 +12,6 @@ function Anywhere() {
   useEffect(() => {
     dispatch(fetchSpots());
   }, [dispatch]);
-
-  console.log("$$$$$$$$$$$$$", spots[0].Images[0].url)
 
   return (
       <div className="anywhereMainContainer">
@@ -29,7 +28,9 @@ function Anywhere() {
                   <div className="anywhereTile">
                     <img className="gridImg" src={spot.Images[0].url}></img>
                   </div>
-                {spot.name}
+                <NavLink className="anywhereTextLink" to={`/spots/${spot.id}`}>{spot.name}</NavLink>
+                <p className="anywhereText">{spot.city && spot.city} {spot.state && spot.state}
+                {spot.country && spot.country} </p>
                 </div>
               )})}
           </div>

@@ -35,23 +35,21 @@ export const fetchSpots = () => async (dispatch) => {
   const res = await csrfFetch('/api/spots')
   if (res.ok) {
     const spots = await res.json();
-    console.log("!!!!!!!!!!!!!!!!", spots)
     dispatch(getSpots(spots));
   } else {
     throw res;
   }
 }
 
-
-export const fetchUserSpots = (id) => async (dispatch) => {
-  const res = await csrfFetch(`/api/users/${id}/spots`)
-  if (res.ok) {
-    const spots = await res.json();
-    dispatch(getUserSpots(spots, id));
-  } else {
-    throw res;
-  }
-}
+// export const fetchUserSpots = (id) => async (dispatch) => {
+//   const res = await csrfFetch(`/api/users/${id}/spots`)
+//   if (res.ok) {
+//     const spots = await res.json();
+//     dispatch(getUserSpots(spots, id));
+//   } else {
+//     throw res;
+//   }
+// }
 
 export const fetchSpot = (id) => async (dispatch) => {
   const res = await csrfFetch(`/api/spots/${+id}`)
@@ -110,35 +108,23 @@ const initialState = {}
 const spotsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_SPOTS: {
-      console.log("KKKKKKKK", action.spots)
       return action.spots.reduce((spots, spot) => {
         spots[spot.id] = spot
         return spots
       },{})
-      const allspots = {};
-      action.spots.forEach(spot => {
-        allspots[spot.id] = spot;
-      });
-      return allspots;
-    }
-    case GET_USER_SPOTS: {
-      const allspots = {};
-      action.spots.forEach(spot => {
-        return allspots[spot.id] = spot;
-      });
-      return allspots;
-    }
-    case GET_SPOT: {
-      const spot = {}
-      return { ...state, spot: action.spot }
-    }
+      }
+      case GET_SPOT: {
+        const spot = action.spot
+        console.log("|||||||||||||", spot)
+        return { ...state, spot}
+      }
     case ADD_SPOT:
       return { ...state, [action.spot.id]:action.spot};
 
       default:
-      return state;
+        return state;
+      }
     }
-  }
 
 
 
