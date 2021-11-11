@@ -10,18 +10,18 @@ function SpotPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const spott = useSelector(state => Object.values(state?.spots));
-  const spot = spott[0]
-  console.log("??????????????????", spot)
+  // const spott = useSelector(state => Object.values(state?.spots));
+  const spot = useSelector(state => state.spots.spot);
+  // const spot = spott[0]
+  console.log("??????????????????", spot, sessionUser)
 
   useEffect(() => {
     dispatch(fetchSpot(id));
   }, [dispatch]);
 
-
   return (
     <div className="spotPageMainContainer">
-      <div className="anywhereNavContainer">
+      {/* <div className="anywhereNavContainer">
         <AltNavigation/>
       </div>
       <div className="spotPageCenterContainer">
@@ -62,7 +62,7 @@ function SpotPage() {
             </div>
             <div className="reviews"></div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
