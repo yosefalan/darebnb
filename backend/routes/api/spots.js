@@ -8,7 +8,11 @@ const router = express.Router();
 
 router.get('/',
 asyncHandler(async(req, res) => {
-  const spots = await Spot.findAll();
+  const spots = await Spot.findAll({
+    include: [
+      { model: Image },
+    ]
+  });
   return res.json(spots);
 }));
 

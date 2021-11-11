@@ -19,7 +19,7 @@ const getUserSpots = (spots) => {
   };
 };
 
-const getTrack = (spot) => {
+const getSpot = (spot) => {
   return {
     type: GET_SPOT,
     spot,
@@ -35,6 +35,7 @@ export const fetchSpots = () => async (dispatch) => {
   const res = await csrfFetch('/api/spots')
   if (res.ok) {
     const spots = await res.json();
+    console.log("!!!!!!!!!!!!!!!!", spots)
     dispatch(getSpots(spots));
   } else {
     throw res;
@@ -52,12 +53,11 @@ export const fetchUserSpots = (id) => async (dispatch) => {
   }
 }
 
-export const fetchTrack = (id) => async (dispatch) => {
+export const fetchSpot = (id) => async (dispatch) => {
   const res = await csrfFetch(`/api/spots/${+id}`)
   if (res.ok) {
-    const track = await res.json();
-    console.log("XXXXXXXXXXXXXXXXXX", track)
-    dispatch(getTrack(track));
+    const spot = await res.json();
+    dispatch(getSpot(spot));
   } else {
     throw res;
   }
@@ -76,7 +76,6 @@ export const addNewSpot = (data) => async (dispatch) => {
     lng,
     price
   } = data;
-  console.log("***********", data)
   const formData = new FormData();
   formData.append('userId', userId);
   formData.append('name', name);
@@ -108,28 +107,33 @@ export const addNewSpot = (data) => async (dispatch) => {
 
 const initialState = {}
 
-const musicReducer = (state = initialState, action) => {
+const spotsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_SPOTS: {
+      console.log("KKKKKKKK", action.spots)
+      return action.spots.reduce((spots, spot) => {
+        spots[spot.id] = spot
+        return spots
+      },{})
       const allspots = {};
-      action.spots.forEach(track => {
-        return allspots[track.id] = track;
+      action.spots.forEach(spot => {
+        allspots[spot.id] = spot;
       });
       return allspots;
     }
     case GET_USER_SPOTS: {
       const allspots = {};
-      action.spots.forEach(track => {
-        return allspots[track.id] = track;
+      action.spots.forEach(spot => {
+        return allspots[spot.id] = spot;
       });
       return allspots;
     }
     case GET_SPOT: {
-      const track = {}
-      return { ...state, track: action.track }
+      const spot = {}
+      return { ...state, spot: action.spot }
     }
     case ADD_SPOT:
-      return { ...state, [action.track.id]:action.track};
+      return { ...state, [action.spot.id]:action.spot};
 
       default:
       return state;
@@ -146,4 +150,4 @@ const musicReducer = (state = initialState, action) => {
 
 
 
-  export default musicReducer
+  export default spotsReducer

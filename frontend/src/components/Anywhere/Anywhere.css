@@ -26,10 +26,15 @@
   gap: 20px;
 }
 
-/* .tiles {
-  grid-area: tile;
+
+.anywhereTile {
   width: 285px;
-} */
+  height: 285px;
+  background: #999999;
+  border-radius: 15px;
+  overflow: hidden;
+ }
+
 
 .anywhereHeading {
   width: 1200px;
