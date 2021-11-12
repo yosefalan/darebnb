@@ -43,10 +43,10 @@ function SpotPage() {
         <div className="spotPagePhotoGrid">
           <div className="spotPagePhotoGridLeft"><img className="gridImg" src={spot?.Images[0]?.url}></img></div>
           <div className="spotPagePhotoGridRight">
-            <div className="r1"><img className="gridImg" src={spot?.Images[1].url}></img></div>
-            <div className="r2"><img className="gridImg" src={spot?.Images[2].url}></img></div>
-            <div className="r3"><img className="gridImg" src={spot?.Images[3].url}></img></div>
-            <div className="r4"><img className="gridImg" src={spot?.Images[4].url}></img></div>
+            <div className="r1"><img className="gridImg" src={spot?.Images[1]?.url}></img></div>
+            <div className="r2"><img className="gridImg" src={spot?.Images[2]?.url}></img></div>
+            <div className="r3"><img className="gridImg" src={spot?.Images[3]?.url}></img></div>
+            <div className="r4"><img className="gridImg" src={spot?.Images[4]?.url}></img></div>
           </div>
         </div>
         <div className="anywhereBottom">
