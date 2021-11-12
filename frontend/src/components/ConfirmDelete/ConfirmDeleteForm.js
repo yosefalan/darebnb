@@ -1,18 +1,17 @@
 import { deleteSpot } from '../../store/spots'
 import { useDispatch } from 'react-redux';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import '../LoginFormModal/form.css';
 import './ConfirmDelete.css'
 
 function ConfirmDelete({ spot }){
   const { id } = useParams();
   const dispatch = useDispatch();
-  console.log("YYYYYYYYYYYYYYYYYY", id)
+  const history = useHistory();
 
   const handleDelete = (id) => {
-    console.log("22222222222222222222222", id)
     dispatch(deleteSpot(id))
-    
+    history.push('/anywhere')
   }
 
   return (

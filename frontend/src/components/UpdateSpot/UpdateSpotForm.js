@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect, useParams, useHistory } from "react-router-dom";
 import { editSpot } from "../../store/spots";
 import '../LoginFormModal/form.css';
 
 function UpdateSpotModalForm({spot, hideForm}) {
 
-  // console.log("FORM PROPS SPOT:", spot)
+ 
   const { id } = useParams();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session?.user);
   const userId = sessionUser.id
+  const history = useHistory();
 
   const [name, setName] = useState(spot?.name);
   const [city, setCity] = useState(spot?.city);
@@ -61,13 +62,14 @@ function UpdateSpotModalForm({spot, hideForm}) {
     });
     if (updatedSpot) {
       hideForm();
+      history.push(`/spots/${id}`)
     }
   };
 
 
-    const updateFiles = (e) => {
-    const files = e.target.files;
-    setImages(files);
+  const updateFiles = (e) => {
+  const files = e.target.files;
+  setImages(files);
 
   };
 

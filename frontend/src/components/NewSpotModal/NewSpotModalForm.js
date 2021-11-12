@@ -9,9 +9,7 @@ function NewSpotModalForm() {
   const sessionUser = useSelector((state) => state.session?.user);
   const userId = sessionUser.id
   const [name, setName] = useState("");
-  // const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-  // const [state, setState] = useState("");
   const [country, setCountry] = useState("");
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
@@ -24,11 +22,9 @@ function NewSpotModalForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     let newErrors = [];
-    dispatch(addNewSpot({
+    const newSpot = dispatch(addNewSpot({
       userId,
-      // address,
       city,
-      // state,
       country,
       lat,
       lng,
@@ -37,9 +33,7 @@ function NewSpotModalForm() {
       images
     }))
     .then(() => {
-    //   setAddress("");
       setCity("");
-      // setState("");
       setCountry("");
       setLat(null);
       setLng(null);
@@ -53,6 +47,10 @@ function NewSpotModalForm() {
         setErrors(newErrors);
       }
       });
+    // if (updatedSpot) {
+    //   hideForm();
+    //   history.push(`/spots/${id}`)
+    // }
   };
 
      const updateFiles = (e) => {
@@ -77,15 +75,6 @@ function NewSpotModalForm() {
             onChange={(e) => setName(e.target.value)}
             required
             />
-          {/* <input
-            type="text"
-            className="field"
-            placeholder="Address"
-            autocomplete="new-password"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            required
-            /> */}
             <input
             type="text"
             className="field"

@@ -115,7 +115,6 @@ export const addNewSpot = (data) => async (dispatch) => {
 };
 
 export const editSpot = (data, id) => async dispatch => {
-  console.log("EDIT SPOT ***********", data)
   const response = await csrfFetch(`/api/spots/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json'},
@@ -123,7 +122,6 @@ export const editSpot = (data, id) => async dispatch => {
   })
   if(response.ok) {
     const spot = await response.json();
-    console.log("RES OK ***********", spot)
     dispatch(updateSpot(spot))
     return spot
   }
@@ -131,13 +129,10 @@ export const editSpot = (data, id) => async dispatch => {
 
 
 export const deleteSpot = id => async dispatch => {
-  console.log("|||||||||||||||||||||", id)
   const response = await csrfFetch(`/api/spots/${id}`, {
     method: 'DELETE',
   });
-
   if (response.ok) {
-    console.log("$$$$$$$$$$$$$$$$$$$$", id)
     dispatch(destroySpot(id));
   }
 };
@@ -158,8 +153,7 @@ const spotsReducer = (state = initialState, action) => {
       }
     case ADD_SPOT:
       return { ...state, [action.spot.id]:action.spot};
-
-      default:
+    default:
         return state;
       }
     }

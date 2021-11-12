@@ -22,13 +22,13 @@ function Anywhere() {
           <h1 className="anywhereHeading">Welcome to Anywhere!</h1>
 
           <div className="anywhereTilesContainer">
-          {spots.map(spot => {
+          {spots?.map(spot => {
               return (
                 <div>
                   <div className="anywhereTile">
                     <img className="gridImg" src={spot.Images[0].url}></img>
                   </div>
-                <NavLink className="anywhereTextLink" to={`/spots/${spot.id}`}>{spot.name}</NavLink>
+                <NavLink className="anywhereTextLink" to={`/spots/${spot.id}`}>{spot?.name}</NavLink>
                 <p className="anywhereText">{spot.city && spot.city}{spot?.city ? "," : null} {spot.state && spot.state}{spot?.state ? ", " : null}
                 {spot.country && spot.country} </p>
                 </div>

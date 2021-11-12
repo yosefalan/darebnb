@@ -71,7 +71,6 @@ router.post(
 router.put(
   '/:id',
   asyncHandler(async(req, res) => {
-    console.log("????????????????????", req.params.id)
     const spot = await Spot.findByPk(+req.params.id);
     await spot.update(req.body);
     return res.json(spot);
