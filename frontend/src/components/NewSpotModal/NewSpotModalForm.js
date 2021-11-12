@@ -6,16 +6,16 @@ import '../LoginFormModal/form.css';
 
 function NewSpotModalForm() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session?.user);
   const userId = sessionUser.id
   const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
+  // const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
-  const [state, setState] = useState("");
+  // const [state, setState] = useState("");
   const [country, setCountry] = useState("");
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
-  const [price, setPrice] = useState(null);
+  const [description, setDescription] = useState("");
   const [errors, setErrors] = useState([]);
   const [images, setImages] = useState([]);
 
@@ -26,24 +26,24 @@ function NewSpotModalForm() {
     let newErrors = [];
     dispatch(addNewSpot({
       userId,
-      address,
+      // address,
       city,
-      state,
+      // state,
       country,
       lat,
       lng,
       name,
-      price,
+      description,
       images
     }))
     .then(() => {
-      setAddress("");
+    //   setAddress("");
       setCity("");
-      setState("");
+      // setState("");
       setCountry("");
       setLat(null);
       setLng(null);
-      setPrice(null);
+      setDescription("");
       setImages(null);
     })
     .catch(async (res) => {
@@ -59,20 +59,6 @@ function NewSpotModalForm() {
       const files = e.target.files;
       setImages(files);
     };
-
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (password === confirmPassword) {
-  //     setErrors([]);
-  //     return dispatch(sessionActions.signup({ title, url, password }))
-  //       .catch(async (res) => {
-  //         const data = await res.json();
-  //         if (data && data.errors) setErrors(data.errors);
-  //       });
-  //   }
-  //   return setErrors(['Confirm Password field must be the same as the Password field']);
-  // };
 
   return (
     <div className="formContainer">
@@ -91,7 +77,7 @@ function NewSpotModalForm() {
             onChange={(e) => setName(e.target.value)}
             required
             />
-          <input
+          {/* <input
             type="text"
             className="field"
             placeholder="Address"
@@ -99,7 +85,7 @@ function NewSpotModalForm() {
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             required
-            />
+            /> */}
             <input
             type="text"
             className="field"
@@ -109,7 +95,7 @@ function NewSpotModalForm() {
             onChange={(e) => setCity(e.target.value)}
             required
             />
-            <select
+            {/* <select
             className="field"
             placeholder="State (US Only)"
             autocomplete="new-password"
@@ -169,7 +155,7 @@ function NewSpotModalForm() {
               <option value="WV">West Virginia</option>
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
-            </select>
+            </select> */}
             <select
             className="field"
             placeholder="Country"
@@ -434,7 +420,7 @@ function NewSpotModalForm() {
             onChange={(e) => setLat(e.target.value)}
             required
             />
-             <input
+            <input
             type="number"
             className="field"
             placeholder="Longitude"
@@ -443,13 +429,12 @@ function NewSpotModalForm() {
             onChange={(e) => setLng(e.target.value)}
             required
             />
-            <input
-            type="number"
+            <textarea
             className="field"
-            placeholder="Price (USD per night)"
+            placeholder="Description"
             autocomplete="new-password"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             required
             />
             <div className="buttonsContainer">

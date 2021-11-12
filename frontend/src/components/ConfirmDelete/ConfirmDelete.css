@@ -1,0 +1,31 @@
+
+.spotButtonContainer {
+  /* position: relative; */
+  display: flex;
+  height: 40px;
+  width: 100px;
+  background-color: #FFFFFF;
+  height: 44px;
+  cursor: pointer;
+  border-radius: 25px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #D9D9D9;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.confirmDeleteContainer {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding: 20px;
+}
+
+.confirmDeleteButton {
+  align-self: center;
+  width: 200px;
+
+}

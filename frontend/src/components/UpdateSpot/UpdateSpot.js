@@ -9,12 +9,12 @@ const UpdateSpot = ({spot}) => {
   return (
     <>
       <button
-      // onClick={() => setShowModal(true)}
+      onClick={() => setShowModal(true)}
       className="spotButtonContainer"
       >Update Spot</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          {/* <UpdateSpotForm spot={spot}/> */}
+          <UpdateSpotForm spot={spot} hideForm={() => setShowModal(false)}/>
         </Modal>
       )}
     </>
@@ -23,14 +23,3 @@ const UpdateSpot = ({spot}) => {
 }
 
 export default UpdateSpot;
-
-
-// ? <div className="spotButtonContainer"
-// onClick={() => setShowModal(true)}>
-// <p className="spotButtonText">Update Spot</p></div>
-// : null}
-//   {showModal && (
-//     <Modal onClose={() => setShowModal(false)}>
-
-//     </Modal>
-//   )}

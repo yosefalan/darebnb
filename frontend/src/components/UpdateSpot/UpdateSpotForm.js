@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useParams } from "react-router-dom";
-import { addNewSpot, fetchSpot } from "../../store/spots";
+import { editSpot } from "../../store/spots";
 import '../LoginFormModal/form.css';
 
-function UpdateSpotModalForm({spot}) {
+function UpdateSpotModalForm({spot, hideForm}) {
 
-  console.log("FORM PROPS SPOT:", spot)
+  // console.log("FORM PROPS SPOT:", spot)
   const { id } = useParams();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session?.user);
   const userId = sessionUser.id
 
   const [name, setName] = useState(spot?.name);
-  const [address, setAddress] = useState(spot?.address);
   const [city, setCity] = useState(spot?.city);
-  const [state, setState] = useState(spot?.state);
   const [country, setCountry] = useState(spot?.country);
   const [lat, setLat] = useState(spot?.lat);
   const [lng, setLng] = useState(spot?.lng);
@@ -24,44 +22,34 @@ function UpdateSpotModalForm({spot}) {
   const [images, setImages] = useState([]);
 
   const updateName = (e) => setName(e.target.value);
-  const updateAddress = (e) => setAddress(e.target.value);
   const updateCity = (e) => setCity(e.target.value);
-  const updateState = (e) => setState(e.target.value);
   const updateCountry = (e) => setCountry(e.target.value);
   const updateLat = (e) => setLat(e.target.value);
   const updateLng = (e) => setLng(e.target.value);
   const updateDescription = (e) => setDescription(e.target.value);
-
-  // useEffect(() => {
-  //   dispatch(fetchSpot(id));
-  // }, [dispatch]);
-
 
   if (!sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let newErrors = [];
-    dispatch(addNewSpot({
+
+    const updatedSpot = dispatch(editSpot({
       userId,
-      address,
       city,
-      state,
       country,
       lat,
       lng,
       name,
       description,
       images
-    }))
+    }, id))
     .then(() => {
-      setAddress("");
       setCity("");
-      setState("");
       setCountry("");
       setLat(null);
       setLng(null);
-      setDescription(null);
+      setDescription("");
       setImages(null);
     })
     .catch(async (res) => {
@@ -70,13 +58,21 @@ function UpdateSpotModalForm({spot}) {
         newErrors = data.errors;
         setErrors(newErrors);
       }
-      });
+    });
+    if (updatedSpot) {
+      hideForm();
+    }
   };
 
-     const updateFiles = (e) => {
-      const files = e.target.files;
-      setImages(files);
-    };
+
+    const updateFiles = (e) => {
+    const files = e.target.files;
+    setImages(files);
+
+  };
+
+
+
 
   return (
     <div className="formContainer">
@@ -95,15 +91,6 @@ function UpdateSpotModalForm({spot}) {
             onChange={updateName}
             required
             />
-          <input
-            type="text"
-            className="field"
-            placeholder="Address"
-            autocomplete="new-password"
-            value={address}
-            onChange={updateAddress}
-            required
-            />
             <input
             type="text"
             className="field"
@@ -113,7 +100,7 @@ function UpdateSpotModalForm({spot}) {
             onChange={updateCity}
             required
             />
-            <select
+            {/* <select
             className="field"
             placeholder="State (US Only)"
             autocomplete="new-password"
@@ -173,7 +160,7 @@ function UpdateSpotModalForm({spot}) {
               <option value="WV">West Virginia</option>
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
-            </select>
+            </select> */}
             <select
             className="field"
             placeholder="Country"
@@ -447,8 +434,7 @@ function UpdateSpotModalForm({spot}) {
             onChange={updateLng}
             required
             />
-            <input
-            type="textarea"
+            <textarea
             className="field"
             placeholder="Description"
             autocomplete="new-password"

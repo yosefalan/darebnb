@@ -1,9 +1,13 @@
 import { csrfFetch } from "./csrf";
 
 const GET_SPOTS = 'GET_SPOTS';
-const GET_USER_SPOTS = 'GET_USER_SPOTS';
+// const GET_USER_SPOTS = 'GET_USER_SPOTS';
 const GET_SPOT = 'GET_SPOT';
 const ADD_SPOT = 'ADD_SPOT';
+const UPDATE_SPOT = 'UPDATE_SPOT';
+const DESTROY_SPOT = 'DESTROY_SPOT';
+
+
 
 const getSpots = (spots) => {
   return {
@@ -12,12 +16,12 @@ const getSpots = (spots) => {
   };
 };
 
-const getUserSpots = (spots) => {
-  return {
-    type: GET_USER_SPOTS,
-    spots,
-  };
-};
+// const getUserSpots = (spots) => {
+//   return {
+//     type: GET_USER_SPOTS,
+//     spots,
+//   };
+// };
 
 const getSpot = (spot) => {
   return {
@@ -30,6 +34,18 @@ const addSpot = spot => ({
   type: ADD_SPOT,
   spot
 })
+
+const updateSpot = spot => ({
+  type: UPDATE_SPOT,
+  spot
+})
+
+const destroySpot = (id) => ({
+  type: DESTROY_SPOT,
+  id
+})
+
+
 
 export const fetchSpots = () => async (dispatch) => {
   const res = await csrfFetch('/api/spots')
@@ -66,31 +82,26 @@ export const addNewSpot = (data) => async (dispatch) => {
     images,
     userId,
     name,
-    address,
     city,
-    state,
     country,
     lat,
     lng,
-    price
+    description
   } = data;
   const formData = new FormData();
   formData.append('userId', userId);
   formData.append('name', name);
-  formData.append('address', address);
   formData.append('city', city);
   formData.append('country', country);
-  formData.append('state', state);
   formData.append('lat', lat);
   formData.append('lng', lng);
-  formData.append('price', price);
+  formData.append('description', description);
 
   if (images && images.length !== 0) {
     for (var i = 0; i < images.length; i++) {
       formData.append("images", images[i]);
     }
   }
-
   const res = await csrfFetch(`/api/spots/add`, {
     method: "POST",
     headers: {
@@ -100,7 +111,35 @@ export const addNewSpot = (data) => async (dispatch) => {
   });
 
   const newSpot = await res.json();
-  dispatch(addNewSpot(newSpot));
+  dispatch(addSpot(newSpot));
+};
+
+export const editSpot = (data, id) => async dispatch => {
+  console.log("EDIT SPOT ***********", data)
+  const response = await csrfFetch(`/api/spots/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+  })
+  if(response.ok) {
+    const spot = await response.json();
+    console.log("RES OK ***********", spot)
+    dispatch(updateSpot(spot))
+    return spot
+  }
+}
+
+
+export const deleteSpot = id => async dispatch => {
+  console.log("|||||||||||||||||||||", id)
+  const response = await csrfFetch(`/api/spots/${id}`, {
+    method: 'DELETE',
+  });
+
+  if (response.ok) {
+    console.log("$$$$$$$$$$$$$$$$$$$$", id)
+    dispatch(destroySpot(id));
+  }
 };
 
 const initialState = {}

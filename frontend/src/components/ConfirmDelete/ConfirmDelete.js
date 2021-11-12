@@ -1,23 +1,22 @@
-// ? <div className="spotButtonContainer"
-// onClick={() => setShowModal(true)}
-// ><p className="spotButtonText">Delete Spot</p></div>
-// : null}
 
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal } from '../../context/Modal';
 import ConfirmDeleteForm from "./ConfirmDeleteForm";
+import './ConfirmDelete.css'
 
-const ConfirmDelete = () => {
-
+const ConfirmDelete = ({ spot }) => {
+ 
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-    <a onClick={() => setShowModal(true)} id="signupButton">Post a Spot</a>
+    <button onClick={() => setShowModal(true)}
+    className="spotButtonContainer"
+    id>Delete Spot</button>
     {showModal && (
       <Modal onClose={() => setShowModal(false)}>
-        <ConfirmDeleteForm />
+        <ConfirmDeleteForm spot={spot} />
       </Modal>
     )}
   </>

@@ -4,7 +4,7 @@ import AltNavigation from "../AltNavigation/AltNavigation";
 import '../SpotPage/SpotPage.css'
 import { fetchSpot } from "../../store/spots";
 import { useParams } from 'react-router-dom'
-import UpdateSpot from "../UpdateSpot/UpdateSpotForm";
+import UpdateSpot from "../UpdateSpot/UpdateSpot";
 import ConfirmDelete from "../ConfirmDelete/ConfirmDelete";
 
 function SpotPage() {
@@ -13,7 +13,6 @@ function SpotPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session?.user);
   const spot = useSelector(state => state.spots?.spot);
-
 
   useEffect(() => {
     dispatch(fetchSpot(id));
@@ -33,10 +32,9 @@ function SpotPage() {
               {sessionUser && sessionUser.id === spot?.userId
               ? <UpdateSpot spot={spot}/>
               : null}
-
-              {/* {sessionUser && sessionUser.id === spot?.userId
+              {sessionUser && sessionUser.id === spot?.userId
               ? <ConfirmDelete spot={spot}/>
-              : null} */}
+              : null}
             </div>
           </div>
 
