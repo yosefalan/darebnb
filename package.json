@@ -9,5 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "dependencies": {
+    "sequelize-cli": "^6.3.0"
+  }
 }

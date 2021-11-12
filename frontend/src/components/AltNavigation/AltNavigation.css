@@ -1,0 +1,27 @@
+.mainNavContainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 80px;
+}
+
+.centerNavContainer {
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navLogoContainer {
+  width: 1200px;
+  justify-self: flex-start;
+}
+
+.navLogo {
+  height: 30px;
+}
+.sessionLinks {
+  justify-self: flex-end;
+}

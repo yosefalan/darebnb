@@ -1,0 +1,96 @@
+
+.landingImgContainer {
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  position: absolute;
+}
+
+.landingImgGrad {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, .75))
+}
+
+.landingImg {
+  width: 100%;
+  position: absolute;
+  }
+
+.navContainer {
+  position: absolute;
+}
+
+.imgWrap {
+  width: 100%;
+  height: 70vw;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.landingImgContainer .landingImg {
+  animation: kb 40s infinite;
+}
+
+@keyframes kb {
+0% {
+  opacity: 0;
+  transform-origin: bottom left;
+  transform: scale(1.0);
+  -ms-transform: scale(1.0);
+  -webkit-transform: scale(1.0);
+  -o-transform: scale(1.0);
+  -moz-transform: scale(1.0);
+}
+
+5% {
+  opacity: 1;
+}
+
+95% {
+  animation-timing-function: ease-in;
+  opacity: 1;
+}
+
+100% {
+  transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  opacity: 0;
+}
+}
+
+.anywhereContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 50vw;
+  position: absolute;
+  color: white;
+}
+
+.anywhereButton {
+  display: flex;
+  height: 50px;
+  width: 150px;
+  background-color: white;
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(0.25turn, #6F019C, #C6017E 75%); */
+  /* background-clip: text; */
+  background: radial-gradient(circle at center center, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%)
+}
+
+.anywhereLink {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+}
