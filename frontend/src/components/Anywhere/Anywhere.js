@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import AltNavigation from "../AltNavigation/AltNavigation";
 import '../Anywhere/Anywhere.css'
 import { fetchSpots } from "../../store/spots";
-import AnywhereTile from "../AnywhereTile/AnywhereTile";
+
 
 function Anywhere() {
   const dispatch = useDispatch();
