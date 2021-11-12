@@ -37,3 +37,21 @@
   width: 100px;
 
 }
+
+.demoLoginButton {
+  height: 30px;
+  width: 100%;
+  margin: 7px 0px 7px 0px
+}
+
+.loginSubmitButton {
+  height: 30px;
+  width: 100%;
+  margin: 7px 0px 7px 0px
+}
+
+.signupSubmitButton {
+  height: 30px;
+  width: 100%;
+  margin: 7px 0px 7px 0px
+}

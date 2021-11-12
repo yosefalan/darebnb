@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signup } from "../../store/session";
+import { signup, demoLogin } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import  '../LoginFormModal/form.css'
@@ -40,6 +40,12 @@ function SignupForm() {
     const file = e.target.files[0];
     if (file) setImage(file);
   };
+
+  const handleDemoLogin= (e) => {
+    e.preventDefault();
+    return dispatch(demoLogin())
+  }
+
 
   return (
     <div className="formContainer">
@@ -88,7 +94,9 @@ function SignupForm() {
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
             />
-        <button type="submit" id="signupSubmitButton">Create Account</button>
+        <button type="submit" className="signupSubmitButton">Create Account</button>
+        <button onClick={handleDemoLogin} className="demoLoginButton">Demo Login</button>
+
       </form>
       {/* <div>
         {user && (

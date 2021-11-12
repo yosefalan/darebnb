@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import { demoLogin } from "../../store/session";
 import './form.css'
 
 function LoginForm() {
@@ -19,6 +20,11 @@ function LoginForm() {
       }
     );
   };
+
+  const handleDemoLogin= (e) => {
+    e.preventDefault();
+    return dispatch(sessionActions.demoLogin())
+  }
 
   return (
     <div className="formContainer">
@@ -45,7 +51,8 @@ function LoginForm() {
             required
           />
 
-        <button type="submit" id="loginSubmitButton">Log In</button>
+        <button type="submit" className="loginSubmitButton">Log In</button>
+        <button onClick={handleDemoLogin} className="demoLoginButton">Demo Login</button>
       </form>
     </div>
   );
