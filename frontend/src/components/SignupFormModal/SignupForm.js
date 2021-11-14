@@ -13,7 +13,7 @@ function SignupForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.session.user);
+  // const user = useSelector((state) => state.session.user);
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -69,14 +69,6 @@ function SignupForm() {
             onChange={(e) => setUsername(e.target.value)}
             required
             />
-             {/* <input
-            type="text"
-            className="field"
-            placeholder="Image URL"
-            value={imageURL}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-            /> */}
           <input type="file" onChange={updateFile} />
           <input
             type="password"
@@ -98,18 +90,6 @@ function SignupForm() {
         <button onClick={handleDemoLogin} className="demoLoginButton">Demo Login</button>
 
       </form>
-      {/* <div>
-        {user && (
-          <div>
-            <h1>{user.username}</h1>
-            <img
-              style={{ width: "150px" }}
-              src={user.profileImageUrl}
-              alt="profile"
-            />
-          </div>
-        )}
-      </div> */}
     </div>
   );
 }

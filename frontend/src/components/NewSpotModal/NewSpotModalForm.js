@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { addNewSpot } from "../../store/spots";
 import '../LoginFormModal/form.css';
 
-function NewSpotModalForm() {
+function NewSpotModalForm({ hideForm }) {
+  const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session?.user);
   const userId = sessionUser.id
@@ -47,10 +48,13 @@ function NewSpotModalForm() {
         setErrors(newErrors);
       }
       });
-    // if (updatedSpot) {
-    //   hideForm();
-    //   history.push(`/spots/${id}`)
-    // }
+
+    if (newSpot) {
+      hideForm();
+      window.location.reload(true);
+      console.log("NEW SPOT:", newSpot)
+      // history.push(`/spots/${id}`)
+    }
   };
 
      const updateFiles = (e) => {

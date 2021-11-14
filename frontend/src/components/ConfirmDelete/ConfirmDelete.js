@@ -1,12 +1,11 @@
 
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
 import { Modal } from '../../context/Modal';
 import ConfirmDeleteForm from "./ConfirmDeleteForm";
 import './ConfirmDelete.css'
 
 const ConfirmDelete = ({ spot }) => {
- 
+
   const [showModal, setShowModal] = useState(false);
 
   return (

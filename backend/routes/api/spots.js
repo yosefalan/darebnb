@@ -85,4 +85,17 @@ router.delete(
   })
 );
 
+
+router.get('/:id/reviews',
+asyncHandler(async(req, res) => {
+  const spotId = +req.params.id
+  const spots = await Review.findAll({
+    where: {
+      spotId:  spotId
+    },
+  });
+ return res.json(spots);
+}));
+
+
 module.exports = router;

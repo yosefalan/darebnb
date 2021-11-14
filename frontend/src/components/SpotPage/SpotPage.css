@@ -121,6 +121,12 @@
   object-fit: cover;
 }
 
+.anywhereBottom {
+  display: flex;
+  flex-direction: column;
+}
+
+
 .description {
   /* height: 100px; */
   display: flex;
@@ -144,4 +150,17 @@
   font-size: 20px;
   margin-left: 20px;
   width: 500px;
+}
+
+.reviewsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.reviews {
+  width: 1100px;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 50px;
 }

@@ -11,6 +11,7 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -48,8 +49,8 @@ function ProfileButton({ user }) {
       {user
       ? user.imageURL
       ? <img src={user.imageURL} className="profileImage"></img>
-      : <i class="fas fa-user-circle"></i>
-      : <i class="fas fa-user-circle"></i>
+      : <i className="fas fa-user-circle"></i>
+      : <i className="fas fa-user-circle"></i>
       }
       </div>
         <div className="dropdownContent">

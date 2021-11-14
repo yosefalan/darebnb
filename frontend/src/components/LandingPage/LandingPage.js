@@ -1,6 +1,6 @@
 import Navigation from "../Navigation/Navigation";
 import '../LandingPage/LandingPage.css'
-import { NavLink } from 'react-router-dom';
+
 
 
 function LandingPage() {
@@ -10,7 +10,7 @@ function LandingPage() {
       <div className="landingImgContainer">
         <div className="landingImgGrad"></div>
         <div className="imgWrap">
-        <img src={'images/bone-church-1.png'}className="landingImg"></img>
+        <img src={'images/bone-church-1.png'}className="landingImg" alt="landing page"></img>
         </div>
       </div>
       <div className="navContainer">

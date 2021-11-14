@@ -1,0 +1,47 @@
+
+.reviewTileImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.faContainer {
+ color: #999999;
+ font-size: 60px;
+}
+
+.reviewTile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 500px;
+}
+
+
+
+.reviewTileLeft {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  align-items: center;
+  font-weight: bold;
+}
+
+.reviewTileBody {
+  margin-left: 20px;
+  width: 300px;
+}
+
+.reviewTileButtons {
+ margin-left: 20px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+}
+
+.reviewBtn {
+  background-color: #FFFFFF;
+  width: 100px;
+  border-radius: 25px;
+}

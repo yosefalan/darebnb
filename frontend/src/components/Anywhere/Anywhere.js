@@ -5,7 +5,6 @@ import AltNavigation from "../AltNavigation/AltNavigation";
 import '../Anywhere/Anywhere.css'
 import { fetchSpots } from "../../store/spots";
 
-
 function Anywhere() {
   const dispatch = useDispatch();
   const spots = useSelector(state => Object.values(state?.spots));
@@ -26,11 +25,11 @@ function Anywhere() {
               return (
                 <div>
                   <div className="anywhereTile">
-                    <img className="gridImg" src={spot?.Images[0]?.url}></img>
+                    <img className="gridImg" src={spot?.Images[0]?.url} alt=""></img>
                   </div>
-                <NavLink className="anywhereTextLink" to={`/spots/${spot.id}`}>{spot?.name}</NavLink>
-                <p className="anywhereText">{spot.city && spot.city}{spot?.city ? "," : null} {spot.state && spot.state}{spot?.state ? ", " : null}
-                {spot.country && spot.country} </p>
+                <NavLink className="anywhereTextLink" to={`/spots/${spot?.id}`}>{spot?.name}</NavLink>
+                <p className="anywhereText">{spot?.city && spot?.city}{spot?.city ? "," : null} {spot?.state && spot?.state}{spot?.state ? ", " : null}
+                {spot?.country && spot?.country} </p>
                 </div>
               )})}
           </div>
@@ -38,5 +37,9 @@ function Anywhere() {
       </div>
   );
 }
+
+
+
+
 
 export default Anywhere;
