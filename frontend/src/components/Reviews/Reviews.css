@@ -30,10 +30,17 @@
 
 .reviewTileBody {
   margin-left: 20px;
-  width: 300px;
+  width: 275px;
+  overflow-y: scroll;
+  align-items: center;
+}
+
+.reviewTileBody::-webkit-scrollbar {
+  display: none;
 }
 
 .reviewTileButtons {
+  height: 100px;
  margin-left: 20px;
  display: flex;
  flex-direction: column;
@@ -41,7 +48,19 @@
 }
 
 .reviewBtn {
+  color: #666666;
   background-color: #FFFFFF;
   width: 100px;
+  height: 40px;
   border-radius: 25px;
+  display: flex;
+  cursor: pointer;
+  border-radius: 25px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #D9D9D9;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  margin-top: 15px;
+  margin-left: 15px;
 }
