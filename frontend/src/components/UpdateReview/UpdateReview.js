@@ -1,10 +1,11 @@
 
 import React, { useState } from "react";
 import { Modal } from '../../context/Modal';
-import DeleteReviewForm from "./DeleteReviewForm";
-import './DeleteReview.css'
+import UpdateReviewForm from "./UpdateReviewForm";
+import { editReview } from "../../store/reviews";
+import './UpdateReview.css'
 
-const DeleteReview = ({ spot, reviewId, spotId }) => {
+const UpdateReview = ({ review, spotId }) => {
 
   const [showModal, setShowModal] = useState(false);
 
@@ -12,10 +13,12 @@ const DeleteReview = ({ spot, reviewId, spotId }) => {
     <>
     <button onClick={() => setShowModal(true)}
     className="spotButtonContainer"
-    id>Delete</button>
+    id>Update</button>
     {showModal && (
       <Modal onClose={() => setShowModal(false)}>
-        <DeleteReviewForm spot={spot} reviewId={reviewId} spotId={spotId}/>
+        <UpdateReviewForm currentReview={review} spotId={spotId}
+        hideForm={() => setShowModal(false)}
+        />
       </Modal>
     )}
   </>
@@ -23,4 +26,4 @@ const DeleteReview = ({ spot, reviewId, spotId }) => {
 
 }
 
-export default DeleteReview;
+export default UpdateReview;

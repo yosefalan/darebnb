@@ -6,6 +6,8 @@ import { addNewReview, fetchReviews } from "../../store/reviews";
 import { fetchUsers } from "../../store/users";
 import { useParams } from 'react-router-dom'
 import DeleteReview from "../DeleteReview/DeleteReview";
+import UpdateReview from "../UpdateReview/UpdateReview"
+
 
 function Reviews({ spot, sessionUser }) {
 
@@ -98,10 +100,11 @@ function Reviews({ spot, sessionUser }) {
                 <p>{review?.review}</p>
               </div>
               <div className="reviewTileButtons">
-              {sessionUser.id === review?.userId
-              ? <button className="reviewBtn">Update</button>
+              {sessionUser?.id === review?.userId
+              ?  <UpdateReview review={review} spotId={spotId} />
+              // ? <button className="reviewBtn">Update</button>
               :null}
-              {sessionUser.id === review?.userId
+              {sessionUser?.id === review?.userId
               ? <DeleteReview reviewId={review.id} spotId={spotId} />
               : null
               }

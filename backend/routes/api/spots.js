@@ -113,14 +113,6 @@ router.put(
 
 
 
-// router.put(
-//   '/:id',
-//   asyncHandler(async(req, res) => {
-//     const spot = await Spot.findByPk(+req.params.id);
-//     await spot.update(req.body);
-//     return res.json(spot);
-//   })
-// );
 
 router.delete(
   '/:id',
@@ -151,10 +143,21 @@ router.post(
   })
 );
 
+router.put(
+  '/:id/reviews/:id',
+  asyncHandler(async(req, res) => {
+    console.log("!!!!!!!!!!!!!!!!!!!!", req)
+    const review = await Review.findByPk(+req.params.id);
+    await review.update(req.body);
+    return res.json(review);
+  })
+);
+
+
+
 router.delete(
   '/:id/reviews/:id',
   asyncHandler(async(req, res) => {
-    console.log("KKKKKKKKKKKKKKKKKKKKKKKKK", req.params.id)
     const review = await Review.findByPk(+req.params.id);
     review.destroy()
   })
