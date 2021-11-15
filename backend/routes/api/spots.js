@@ -88,15 +88,15 @@ router.put(
     const imagesURL = await multiplePublicFileUpload(req.files);
     const spot = await Spot.findByPk(+req.params.id);
     await spot.update(req.body);
-    // await spot.update({
-    //   userId,
-    //   name,
-    //   city,
-    //   country,
-    //   lat,
-    //   lng,
-    //   description,
-    // });
+    await spot.update({
+      userId,
+      name,
+      city,
+      country,
+      lat,
+      lng,
+      description,
+    });
     const spotId = spot.id
     const urls = await
     imagesURL.map(url => {
