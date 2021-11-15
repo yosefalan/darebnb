@@ -51,8 +51,8 @@ function NewSpotModalForm({ hideForm }) {
       if (newSpot) {
       hideForm();
       // history.push('/anywhere')
-      window.location.reload(true);
       history.push(`/spots/${newSpot}`)
+      window.location.reload(true);
       }
   };
 
