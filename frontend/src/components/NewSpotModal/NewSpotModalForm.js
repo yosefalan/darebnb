@@ -52,7 +52,7 @@ function NewSpotModalForm({ hideForm }) {
       hideForm();
       history.push('/anywhere')
       window.location.reload(true);
-      // history.push(`/spots/${newSpot}`)
+      history.push(`/spots/${newSpot}`)
       }
   };
 
