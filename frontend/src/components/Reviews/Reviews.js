@@ -17,18 +17,8 @@ function Reviews({ spot, sessionUser }) {
   const spotId = id
   // const reviews = Object.values(spot?.Reviews)
 
-  const [ showEdit, setShowEdit ] = useState(false)
-  const [showBody, setShowBody] = useState(true)
   const [ review, setReview ] = useState('')
   const [errors, setErrors] = useState([]);
-  const pReview = useRef(null);
-
-  // const enterSubmit=(e)=> {
-  //   if (e.keyCode === 13) {
-  //     handleSubmit()
-  //   }
-  // }
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,23 +31,15 @@ function Reviews({ spot, sessionUser }) {
     .then(() => {
       setReview("");
     })
-    // .catch(async (res) => {
-    //   const data = await res.json();
-    //   if (data && data.errors) {
-    //     newErrors = data.errors;
-    //     setErrors(newErrors);
-    //   }
-    //   });
-
-    // if (newReview) {
-      // hideForm();
+    .catch(async (res) => {
+      const data = await res.json();
+      if (data && data.errors) {
+        newErrors = data.errors;
+        setErrors(newErrors);
+      }
+      });
       window.location.reload(true);
-      // history.push(`/spots/${id}`)
-    // }
   };
-
-
-
 
   useEffect(() => {
     dispatch(fetchReviews(id));
@@ -113,17 +95,14 @@ function Reviews({ spot, sessionUser }) {
                 {findUser(review?.userId)?.username}
               </div>
               <div className="reviewTileBody">
-                {showEdit
-                ? <textarea />
-                : <p ref={pReview}>{review?.review}</p>
-                }
+                <p>{review?.review}</p>
               </div>
               <div className="reviewTileButtons">
               {sessionUser.id === review?.userId
-              ? <DeleteReview />
+              ? <button className="reviewBtn">Update</button>
               :null}
               {sessionUser.id === review?.userId
-              ? <button className="reviewBtn">Delete</button>
+              ? <DeleteReview reviewId={review.id} spotId={spotId} />
               : null
               }
               </div>

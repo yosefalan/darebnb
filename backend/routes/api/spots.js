@@ -154,8 +154,9 @@ router.post(
 router.delete(
   '/:id/reviews/:id',
   asyncHandler(async(req, res) => {
-    const spot = await Spot.findByPk(+req.params.id);
-    spot.destroy()
+    console.log("KKKKKKKKKKKKKKKKKKKKKKKKK", req.params.id)
+    const review = await Review.findByPk(+req.params.id);
+    review.destroy()
   })
 );
 

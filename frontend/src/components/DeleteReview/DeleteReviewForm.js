@@ -1,17 +1,16 @@
 import { deleteReview } from '../../store/reviews'
 import { useDispatch } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import '../LoginFormModal/form.css';
 import './DeleteReview.css'
 
-function DeleteReviewForm({ spot }){
+function DeleteReviewForm({ spot, reviewId, spotId }){
   const { id } = useParams();
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const handleDelete = (id) => {
-    dispatch(deleteReview(id))
-    history.push('/anywhere')
+    dispatch(deleteReview(spotId, reviewId))
+    window.location.reload(true);
   }
 
   return (

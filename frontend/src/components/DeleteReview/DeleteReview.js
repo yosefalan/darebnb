@@ -4,18 +4,19 @@ import { Modal } from '../../context/Modal';
 import DeleteReviewForm from "./DeleteReviewForm";
 import './DeleteReview.css'
 
-const DeleteReview = ({ spot }) => {
+const DeleteReview = ({ spot, reviewId, spotId }) => {
 
   const [showModal, setShowModal] = useState(false);
 
+  console.log("REVIEW ID:", reviewId)
   return (
     <>
     <button onClick={() => setShowModal(true)}
     className="spotButtonContainer"
-    id>Delete Spot</button>
+    id>Delete</button>
     {showModal && (
       <Modal onClose={() => setShowModal(false)}>
-        <DeleteReviewForm spot={spot} />
+        <DeleteReviewForm spot={spot} reviewId={reviewId} spotId={spotId}/>
       </Modal>
     )}
   </>
