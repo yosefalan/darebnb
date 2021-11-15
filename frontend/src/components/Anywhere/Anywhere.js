@@ -25,7 +25,7 @@ function Anywhere() {
               return (
                 <div>
                   <div className="anywhereTile">
-                    <NavLink to={`/spots/${spot?.id}`}> <img className="gridImg" src={spot?.Images[0]?.url} alt=""></img></NavLink>
+                    {spot && <NavLink to={`/spots/${spot?.id}`}> <img className="gridImg" src={spot?.Images[0]?.url} alt=""></img></NavLink>}
                   </div>
                 <NavLink className="anywhereTextLink" to={`/spots/${spot?.id}`}>{spot?.name}</NavLink>
                 <p className="anywhereText">{spot?.city && spot?.city}{spot?.city ? "," : null} {spot?.state && spot?.state}{spot?.state ? ", " : null}

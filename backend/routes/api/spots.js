@@ -62,9 +62,10 @@ router.post(
         url
       })
     })
-    return res.json({
-      spot
-    });
+    return res.redirect(`${req.baseUrl}/${id}`);
+    // return res.json({
+    //   spot
+    // });
   })
 );
 
