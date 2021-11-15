@@ -46,7 +46,6 @@ function SignupForm() {
     return dispatch(demoLogin())
   }
 
-
   return (
     <div className="formContainer">
       <form onSubmit={handleSubmit} className="form">

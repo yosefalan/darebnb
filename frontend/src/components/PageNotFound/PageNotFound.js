@@ -9,7 +9,7 @@ function PageNotFound () {
       <h2>Even we don't know where that place is</h2>
       <img
       className="pageNotFoundImg"
-      src={'/images/middle.jpg'} alt="page not found"></img>
+      src={'/images/middle.png'} alt="page not found"></img>
     </div>
   )
 

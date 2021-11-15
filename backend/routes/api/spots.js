@@ -146,7 +146,6 @@ router.post(
 router.put(
   '/:id/reviews/:id',
   asyncHandler(async(req, res) => {
-    console.log("!!!!!!!!!!!!!!!!!!!!", req)
     const review = await Review.findByPk(+req.params.id);
     await review.update(req.body);
     return res.json(review);

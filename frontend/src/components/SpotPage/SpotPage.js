@@ -38,15 +38,27 @@ function SpotPage() {
               : null}
             </div>
           </div>
+          {spot &&
           <p className="spotPageText">{spot?.city && spot.city}{spot?.city ? "," : null} {spot?.state && spot.state}{spot?.state ? ", " : null}
                 {spot?.country && spot.country} </p>
+          }
         <div className="spotPagePhotoGrid">
-          <div className="spotPagePhotoGridLeft"><img className="gridImg" src={spot?.Images[0]?.url} alt=""></img></div>
+          <div className="spotPagePhotoGridLeft">
+            {spot ? <img className="gridImg" src={spot?.Images[0]?.url} alt=""></img> : null}
+          </div>
           <div className="spotPagePhotoGridRight">
-            <div className="r1"><img className="gridImg" src={spot?.Images[1]?.url} alt=""></img></div>
-            <div className="r2"><img className="gridImg" src={spot?.Images[2]?.url} alt=""></img></div>
-            <div className="r3"><img className="gridImg" src={spot?.Images[3]?.url} alt=""></img></div>
-            <div className="r4"><img className="gridImg" src={spot?.Images[4]?.url} alt=""></img></div>
+            <div className="r1">
+              {spot ? <img className="gridImg" src={spot?.Images[1]?.url} alt=""></img>: null}
+            </div>
+            <div className="r2">
+              {spot ? <img className="gridImg" src={spot?.Images[2]?.url} alt=""></img>: null}
+            </div>
+            <div className="r3">
+              {spot ? <img className="gridImg" src={spot?.Images[3]?.url} alt=""></img>: null}
+            </div>
+            <div className="r4">
+              {spot ? <img className="gridImg" src={spot?.Images[4]?.url} alt=""></img>: null}
+            </div>
           </div>
         </div>
         <div className="anywhereBottom">

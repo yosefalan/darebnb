@@ -53,7 +53,6 @@ export const addNewReview = (data, spotId) => async (dispatch) => {
 
 }
 export const editReview = (data, spotId, id) => async dispatch => {
-  console.log("EDIT REVIEW IN STORE:", data, spotId, id)
   const response = await csrfFetch(`/api/spots/${spotId}/reviews/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json'},
@@ -61,7 +60,6 @@ export const editReview = (data, spotId, id) => async dispatch => {
   })
   if(response.ok) {
     const review = await response.json();
-    console.log("RESPONSE OK!!!", review)
     dispatch(updateReview(review))
     return review
   }

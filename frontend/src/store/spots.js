@@ -90,6 +90,7 @@ export const addNewSpot = (data) => async (dispatch) => {
   });
   const newSpot = await res.json();
   dispatch(addSpot(newSpot));
+  return newSpot.spot.id
 };
 
 export const editSpot = (data, id) => async dispatch => {
