@@ -4,13 +4,14 @@ import LandingPage from './components/LandingPage/LandingPage'
 import Anywhere from './components/Anywhere/Anywhere'
 import SpotPage from "./components/SpotPage/SpotPage";
 import Maps from "./components/Maps/Maps";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 
 function App() {
 
   return (
     <>
-      <Switch />
+      <Switch>
       <Route exact path='/'>
         <LandingPage />
       </Route>
@@ -26,6 +27,12 @@ function App() {
       <Route path='/maps'>
         <Maps />
       </Route>
+
+      <Route>
+        <PageNotFound />
+      </Route>
+      </Switch>
+
     </>
   );
 }

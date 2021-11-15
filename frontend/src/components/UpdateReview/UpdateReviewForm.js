@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import '../LoginFormModal/form.css';
 import './UpdateReview.css'
 
-
 function UpdateReviewForm({ currentReview, spotId, hideForm}){
   const { id } = useParams();
   const dispatch = useDispatch();

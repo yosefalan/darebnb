@@ -19,6 +19,16 @@ module.exports = {
         spotId: 2,
         review: 'By the head of Medusa!'
       },
+      {
+        userId: 3,
+        spotId: 1,
+        review: 'Super werid and creepy...'
+      },
+      {
+        userId: 4,
+        spotId: 1,
+        review: 'This is my kinda place'
+      },
     ], {});
   },
 
