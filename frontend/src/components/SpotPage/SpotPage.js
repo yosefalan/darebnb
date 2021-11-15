@@ -5,7 +5,7 @@ import '../SpotPage/SpotPage.css'
 import { fetchSpot } from "../../store/spots";
 import { useParams } from 'react-router-dom'
 import UpdateSpot from "../UpdateSpot/UpdateSpot";
-import ConfirmDelete from "../ConfirmDelete/ConfirmDelete";
+import DeleteSpot from "../DeleteSpot/DeleteSpot";
 import Reviews from "../Reviews/Reviews";
 
 function SpotPage() {
@@ -34,7 +34,7 @@ function SpotPage() {
               ? <UpdateSpot spot={spot}/>
               : null}
               {sessionUser && sessionUser.id === spot?.userId
-              ? <ConfirmDelete spot={spot}/>
+              ? <DeleteSpot spot={spot}/>
               : null}
             </div>
           </div>
@@ -59,12 +59,8 @@ function SpotPage() {
               <p>{spot?.description}</p>
             </div>
           </div>
-          <div className="reviewsContainer">
-            <div className="reviews">
-              <Reviews spot={spot} sessionUser={sessionUser} />
-            </div>
+            <Reviews spot={spot} sessionUser={sessionUser} />
           </div>
-        </div>
       </div>
     </div>
   );

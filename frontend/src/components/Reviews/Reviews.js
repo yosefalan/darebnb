@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import '../Reviews/Reviews.css'
-import { fetchReviews } from "../../store/reviews";
+import { addNewReview, fetchReviews } from "../../store/reviews";
+// import { fetchReviews } from "../../store/reviews";
 import { fetchUsers } from "../../store/users";
 import { useParams } from 'react-router-dom'
+import DeleteReview from "../DeleteReview/DeleteReview";
 
 function Reviews({ spot, sessionUser }) {
 
@@ -11,7 +13,51 @@ function Reviews({ spot, sessionUser }) {
   const dispatch = useDispatch();
   const users = useSelector(state => Object.values(state?.users));
   const reviews = useSelector(state => Object.values(state?.reviews));
+  const userId = sessionUser?.id
+  const spotId = id
   // const reviews = Object.values(spot?.Reviews)
+
+  const [ showEdit, setShowEdit ] = useState(false)
+  const [showBody, setShowBody] = useState(true)
+  const [ review, setReview ] = useState('')
+  const [errors, setErrors] = useState([]);
+  const pReview = useRef(null);
+
+  // const enterSubmit=(e)=> {
+  //   if (e.keyCode === 13) {
+  //     handleSubmit()
+  //   }
+  // }
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let newErrors = [];
+    const newReview = dispatch(addNewReview({
+      review,
+      userId,
+      spotId
+    }, id))
+    .then(() => {
+      setReview("");
+    })
+    // .catch(async (res) => {
+    //   const data = await res.json();
+    //   if (data && data.errors) {
+    //     newErrors = data.errors;
+    //     setErrors(newErrors);
+    //   }
+    //   });
+
+    // if (newReview) {
+      // hideForm();
+      window.location.reload(true);
+      // history.push(`/spots/${id}`)
+    // }
+  };
+
+
+
 
   useEffect(() => {
     dispatch(fetchReviews(id));
@@ -28,7 +74,27 @@ function Reviews({ spot, sessionUser }) {
     }
 
   return (
-    <>
+  <>
+    <div className="reviewInput">
+      <div className="reviewInputCenter">
+        <form
+          className="reviewForm"
+          onSubmit={handleSubmit}>
+          <textarea
+          className="reviewInputText"
+          placeholder="  Leave a review..."
+          value={review}
+          onChange={(e) => setReview(e.target.value)}
+          required
+          />
+          <button type="submit" id="submitButton"
+          className="reviewBtn"
+          >Submit</button>
+        </form>
+      </div>
+    </div>
+    <div className="reviewsContainer">
+      <div className="reviews">
         {reviews?.map((review)  => {
           return (
             <div className="reviewTile">
@@ -47,11 +113,14 @@ function Reviews({ spot, sessionUser }) {
                 {findUser(review?.userId)?.username}
               </div>
               <div className="reviewTileBody">
-                {review?.review}
+                {showEdit
+                ? <textarea />
+                : <p ref={pReview}>{review?.review}</p>
+                }
               </div>
               <div className="reviewTileButtons">
               {sessionUser.id === review?.userId
-              ? <button className="reviewBtn">Update</button>
+              ? <DeleteReview />
               :null}
               {sessionUser.id === review?.userId
               ? <button className="reviewBtn">Delete</button>
@@ -60,7 +129,9 @@ function Reviews({ spot, sessionUser }) {
               </div>
             </div>
           )})}
-    </>
+      </div>
+    </div>
+  </>
   )
 }
 

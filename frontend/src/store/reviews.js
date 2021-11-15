@@ -33,7 +33,6 @@ export const fetchReviews = (id) => async (dispatch) => {
   const res = await csrfFetch(`/api/spots/${id}/reviews`)
   if (res.ok) {
     const reviews = await res.json();
-    console.log("REVIEWS STORE:", reviews)
     dispatch(getReviews(reviews));
   } else {
     throw res;
@@ -51,6 +50,7 @@ export const addNewReview = (data, spotId) => async (dispatch) => {
     dispatch(addReview(review))
     return review
 }
+
 }
 export const editReview = (data, spotId, id) => async dispatch => {
   const response = await csrfFetch(`/api/spots/${spotId}/reviews${id}`, {
@@ -82,13 +82,13 @@ const reviewsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_REVIEWS: {
 
-      return action.reviews.reduce((spots, spot) => {
-        spots[spot.id] = spot
-        return spots
+      return action.reviews.reduce((reviews, review) => {
+        reviews[review.id] = review
+        return reviews
       },{})
       }
-    // case ADD_REVIEW:
-    //   return { ...state, [action.spot.id]:action.spot};
+    case ADD_REVIEW:
+      return action.review
     default:
         return state;
       }
