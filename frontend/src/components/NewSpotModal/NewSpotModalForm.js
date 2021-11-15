@@ -23,6 +23,7 @@ function NewSpotModalForm({ hideForm }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let newErrors = [];
+    hideForm();
     const newSpot = await dispatch(addNewSpot({
       userId,
       city,
@@ -32,7 +33,7 @@ function NewSpotModalForm({ hideForm }) {
       name,
       description,
       images
-     }))
+    }))
     .then(() => {
       setCity("");
       setCountry("");
@@ -40,6 +41,12 @@ function NewSpotModalForm({ hideForm }) {
       setLng(null);
       setDescription("");
       setImages(null);
+      if (newSpot) {
+        history.push(`/spots/${newSpot}`)
+      } else {
+        history.push('/anywhere')
+      }
+      window.location.reload(true);
     })
     .catch(async (res) => {
       const data = await res.json();
@@ -48,12 +55,6 @@ function NewSpotModalForm({ hideForm }) {
         setErrors(newErrors);
       }
       });
-      if (newSpot) {
-      hideForm();
-      // history.push('/anywhere')
-      history.push(`/spots/${newSpot}`)
-      window.location.reload(true);
-      }
   };
 
      const updateFiles = (e) => {
