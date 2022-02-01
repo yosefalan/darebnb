@@ -9,16 +9,31 @@ module.exports = {
         email: 'demo@user.io',
         username: 'Demo-lition',
         hashedPassword: bcrypt.hashSync('password'),
+        imageURL: 'https://darebnb.s3.us-east-2.amazonaws.com/amigo.jpg'
       },
       {
-        email: 'maxxximus@mail.com',
-        username: 'MaXXXimus',
+        email: 'fjmisty@mail.com',
+        username: 'FJ Misty',
         hashedPassword: bcrypt.hashSync('password'),
+        imageURL: 'https://darebnb.s3.us-east-2.amazonaws.com/Screenshot+2021-11-08+001109.jpg'
       },
       {
-        email: 'yosefalan@mail.com',
-        username: 'Yosefalan',
+        email: 'david@mail.com',
+        username: 'David',
         hashedPassword: bcrypt.hashSync('password'),
+        imageURL: 'https://darebnb.s3.us-east-2.amazonaws.com/Screenshot+2021-11-08+001148.jpg'
+      },
+      {
+        email: 'her@mail.com',
+        username: 'H.E.R.',
+        hashedPassword: bcrypt.hashSync('password'),
+        imageURL: 'https://darebnb.s3.us-east-2.amazonaws.com/Screenshot+2021-11-08+000933.jpg'
+      },
+      {
+        email: 'phoebe@mail.com',
+        username: 'Phoebe',
+        hashedPassword: bcrypt.hashSync('password'),
+        imageURL: 'https://darebnb.s3.us-east-2.amazonaws.com/Screenshot+2021-11-08+001016.jpg'
       },
     ], {});
   },

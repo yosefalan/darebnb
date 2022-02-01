@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signup } from "../../store/session";
+import { signup, demoLogin } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import  '../LoginFormModal/form.css'
@@ -13,7 +13,7 @@ function SignupForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.session.user);
+  // const user = useSelector((state) => state.session.user);
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -41,6 +41,11 @@ function SignupForm() {
     if (file) setImage(file);
   };
 
+  const handleDemoLogin= (e) => {
+    e.preventDefault();
+    return dispatch(demoLogin())
+  }
+
   return (
     <div className="formContainer">
       <form onSubmit={handleSubmit} className="form">
@@ -63,14 +68,6 @@ function SignupForm() {
             onChange={(e) => setUsername(e.target.value)}
             required
             />
-             {/* <input
-            type="text"
-            className="field"
-            placeholder="Image URL"
-            value={imageURL}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-            /> */}
           <input type="file" onChange={updateFile} />
           <input
             type="password"
@@ -88,20 +85,10 @@ function SignupForm() {
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
             />
-        <button type="submit" id="signupSubmitButton">Create Account</button>
+        <button type="submit" className="signupSubmitButton">Create Account</button>
+        <button onClick={handleDemoLogin} className="demoLoginButton">Demo Login</button>
+
       </form>
-      {/* <div>
-        {user && (
-          <div>
-            <h1>{user.username}</h1>
-            <img
-              style={{ width: "150px" }}
-              src={user.profileImageUrl}
-              alt="profile"
-            />
-          </div>
-        )}
-      </div> */}
     </div>
   );
 }

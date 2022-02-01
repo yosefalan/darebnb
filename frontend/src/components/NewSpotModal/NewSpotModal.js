@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
 import { Modal } from '../../context/Modal';
 import NewSpotModalForm from "./NewSpotModalForm";
 
@@ -12,7 +11,7 @@ const NewSpotModal = () => {
     <a onClick={() => setShowModal(true)} id="signupButton">Post a Spot</a>
     {showModal && (
       <Modal onClose={() => setShowModal(false)}>
-        <NewSpotModalForm />
+        <NewSpotModalForm hideForm={() => setShowModal(false)}/>
       </Modal>
     )}
   </>

@@ -1,11 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import AltNavigation from "../AltNavigation/AltNavigation";
 import '../SpotPage/SpotPage.css'
 import { fetchSpot } from "../../store/spots";
 import { useParams } from 'react-router-dom'
 import UpdateSpot from "../UpdateSpot/UpdateSpot";
-import ConfirmDelete from "../ConfirmDelete/ConfirmDelete";
+import DeleteSpot from "../DeleteSpot/DeleteSpot";
+import Reviews from "../Reviews/Reviews";
 
 function SpotPage() {
 
@@ -16,7 +17,7 @@ function SpotPage() {
 
   useEffect(() => {
     dispatch(fetchSpot(id));
-  }, [dispatch]);
+  }, [id, dispatch]);
 
   return (
     <div className="spotPageMainContainer">
@@ -33,34 +34,44 @@ function SpotPage() {
               ? <UpdateSpot spot={spot}/>
               : null}
               {sessionUser && sessionUser.id === spot?.userId
-              ? <ConfirmDelete spot={spot}/>
+              ? <DeleteSpot spot={spot}/>
               : null}
             </div>
           </div>
-
+          {spot &&
           <p className="spotPageText">{spot?.city && spot.city}{spot?.city ? "," : null} {spot?.state && spot.state}{spot?.state ? ", " : null}
                 {spot?.country && spot.country} </p>
+          }
         <div className="spotPagePhotoGrid">
-          <div className="spotPagePhotoGridLeft"><img className="gridImg" src={spot?.Images[0].url}></img></div>
+          <div className="spotPagePhotoGridLeft">
+            {spot ? <img className="gridImg" src={spot?.Images[0]?.url} alt=""></img> : null}
+          </div>
           <div className="spotPagePhotoGridRight">
-            <div className="r1"><img className="gridImg" src={spot?.Images[1].url}></img></div>
-            <div className="r2"><img className="gridImg" src={spot?.Images[2].url}></img></div>
-            <div className="r3"><img className="gridImg" src={spot?.Images[3].url}></img></div>
-            <div className="r4"><img className="gridImg" src={spot?.Images[4].url}></img></div>
+            <div className="r1">
+              {spot ? <img className="gridImg" src={spot?.Images[1]?.url} alt=""></img>: null}
+            </div>
+            <div className="r2">
+              {spot ? <img className="gridImg" src={spot?.Images[2]?.url} alt=""></img>: null}
+            </div>
+            <div className="r3">
+              {spot ? <img className="gridImg" src={spot?.Images[3]?.url} alt=""></img>: null}
+            </div>
+            <div className="r4">
+              {spot ? <img className="gridImg" src={spot?.Images[4]?.url} alt=""></img>: null}
+            </div>
           </div>
         </div>
         <div className="anywhereBottom">
-            <div className="description">
-              <div className="descriptionImgContainer">
-
-                <img className="descriptionImg" src={'/images/db.jpg'}></img>
-              </div>
-              <div className="descriptionText">
-                <p>{spot?.description}</p>
-              </div>
+          <div className="description">
+            <div className="descriptionImgContainer">
+              <img className="descriptionImg" src={'/images/db.jpg'} alt=""></img>
             </div>
-            <div className="reviews"></div>
-        </div>
+            <div className="descriptionText">
+              <p>{spot?.description}</p>
+            </div>
+          </div>
+            <Reviews spot={spot} sessionUser={sessionUser} />
+          </div>
       </div>
     </div>
   );

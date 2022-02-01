@@ -11,7 +11,7 @@ function AltNavigation(){
     <div className="mainNavContainer">
       <div className="centerNavContainer">
         <div className="navLogoContainer">
-          <NavLink exact to="/"><img className="navLogo" src={'/images/logo_complete_red.png'}></img></NavLink>
+          <NavLink exact to="/"><img className="navLogo" src={'/images/logo_complete_red.png'} alt="logo"></img></NavLink>
         </div>
         <div className="sessionLinks">
           <ProfileButton user={sessionUser} />

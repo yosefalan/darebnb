@@ -9,6 +9,13 @@ const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3');
 
 const router = express.Router();
 
+router.get('/',
+asyncHandler(async(req, res) => {
+  const users = await User.findAll();
+  return res.json(users);
+}))
+
+
 const validateSignup = [
   check('email')
     .exists({ checkFalsy: true })
@@ -50,5 +57,8 @@ router.post(
     });
   })
 );
+
+
+
 
 module.exports = router;

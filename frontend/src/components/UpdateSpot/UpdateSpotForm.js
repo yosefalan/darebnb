@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useParams, useHistory } from "react-router-dom";
 import { editSpot } from "../../store/spots";
@@ -6,7 +6,7 @@ import '../LoginFormModal/form.css';
 
 function UpdateSpotModalForm({spot, hideForm}) {
 
- 
+
   const { id } = useParams();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session?.user);
@@ -62,7 +62,8 @@ function UpdateSpotModalForm({spot, hideForm}) {
     });
     if (updatedSpot) {
       hideForm();
-      history.push(`/spots/${id}`)
+      // history.push(`/spots/${id}`)
+      window.location.reload(true);
     }
   };
 

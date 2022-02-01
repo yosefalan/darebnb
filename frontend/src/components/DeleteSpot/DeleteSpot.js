@@ -1,12 +1,11 @@
 
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
 import { Modal } from '../../context/Modal';
-import ConfirmDeleteForm from "./ConfirmDeleteForm";
-import './ConfirmDelete.css'
+import DeleteSpotForm from "./DeleteSpotForm";
+import './DeleteSpot.css'
 
-const ConfirmDelete = ({ spot }) => {
- 
+const DeleteSpot = ({ spot }) => {
+
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -16,7 +15,7 @@ const ConfirmDelete = ({ spot }) => {
     id>Delete Spot</button>
     {showModal && (
       <Modal onClose={() => setShowModal(false)}>
-        <ConfirmDeleteForm spot={spot} />
+        <DeleteSpotForm spot={spot} />
       </Modal>
     )}
   </>
@@ -24,4 +23,4 @@ const ConfirmDelete = ({ spot }) => {
 
 }
 
-export default ConfirmDelete;
+export default DeleteSpot;

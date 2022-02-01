@@ -1,0 +1,125 @@
+.reviewInput {
+  display: flex;
+  justify-content:flex-start;
+  height: 150px;
+  width: 1200px;
+  margin-top: 25px;
+
+}
+
+.reviewInputCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 600px;
+  border: 1px solid #D9D9D9;
+  border-radius: 25px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+}
+
+.reviewForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 600px;
+  border: 1px solid #D9D9D9;
+  border-radius: 25px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+}
+
+.reviewInputText {
+  width: 300px;
+  height: 75px;
+  border: 1px solid #D9D9D9;
+  border-radius: 15px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+}
+
+.reviewInputText {
+  overflow-y: scroll;
+}
+
+.reviewInputText::-webkit-scrollbar {
+  display: none;
+}
+
+.reviewsContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.reviews {
+  width: 1100px;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 50px;
+}
+
+
+.reviewTileImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.faContainer {
+ color: #999999;
+ font-size: 60px;
+}
+
+.reviewTile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 500px;
+}
+
+
+
+.reviewTileLeft {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  align-items: center;
+  font-weight: bold;
+}
+
+.reviewTileBody {
+  margin-left: 20px;
+  width: 275px;
+  overflow-y: scroll;
+  align-items: center;
+}
+
+.reviewTileBody::-webkit-scrollbar {
+  display: none;
+}
+
+.reviewTileButtons {
+  height: 100px;
+ margin-left: 20px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+}
+
+.reviewBtn {
+  color: #666666;
+  background-color: #FFFFFF;
+  width: 100px;
+  height: 40px;
+  border-radius: 25px;
+  display: flex;
+  cursor: pointer;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #D9D9D9;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+  margin-top: 15px;
+  margin-left: 15px;
+}

@@ -1,21 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React  from "react";
 import { Route, Switch } from "react-router-dom";
 import LandingPage from './components/LandingPage/LandingPage'
 import Anywhere from './components/Anywhere/Anywhere'
 import SpotPage from "./components/SpotPage/SpotPage";
 import Maps from "./components/Maps/Maps";
-// import UpdateSpotModalForm from "./components/UpdateSpot/UpdateSpotForm";
-// import { useDispatch } from "react-redux";
-// import { Route, Switch } from "react-router-dom";
-// import SignupForm from "./components/SignupFormModal/SignupForm";
-// import * as sessionActions from "./store/session";
-// import Navigation from "./components/Navigation/Navigation";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
+
 
 function App() {
 
   return (
     <>
-      <Switch />
+      <Switch>
       <Route exact path='/'>
         <LandingPage />
       </Route>
@@ -31,6 +27,12 @@ function App() {
       <Route path='/maps'>
         <Maps />
       </Route>
+
+      <Route>
+        <PageNotFound />
+      </Route>
+      </Switch>
+
     </>
   );
 }
