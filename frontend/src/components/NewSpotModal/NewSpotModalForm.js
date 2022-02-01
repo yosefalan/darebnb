@@ -52,7 +52,6 @@ function NewSpotModalForm({ hideForm }) {
         // history.push(`/spots/${newSpot}`)
         window.location.reload(true);
         // return <Redirect to={`/spots/${newSpot}`} />
-
   };
      const updateFiles = (e) => {
       const files = e.target.files;

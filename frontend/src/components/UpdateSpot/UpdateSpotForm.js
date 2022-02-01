@@ -62,7 +62,7 @@ function UpdateSpotModalForm({spot, hideForm}) {
     });
     if (updatedSpot) {
       hideForm();
-      history.push(`/spots/${id}`)
+      // history.push(`/spots/${id}`)
       window.location.reload(true);
     }
   };

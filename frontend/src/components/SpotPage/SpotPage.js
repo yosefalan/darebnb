@@ -64,7 +64,6 @@ function SpotPage() {
         <div className="anywhereBottom">
           <div className="description">
             <div className="descriptionImgContainer">
-
               <img className="descriptionImg" src={'/images/db.jpg'} alt=""></img>
             </div>
             <div className="descriptionText">
