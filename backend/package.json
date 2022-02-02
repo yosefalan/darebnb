@@ -34,7 +34,7 @@
     "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
-    "dotenv-cli": "^4.1.0",
-    "nodemon": "^2.0.14"
+    "dotenv-cli": "^4.1.1",
+    "nodemon": "^2.0.15"
   }
 }
