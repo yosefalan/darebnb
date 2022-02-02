@@ -1,6 +1,6 @@
 # darebnb
 
-A site (inspired by airbnb) for users to browse, post, and comment on the world's most dangerous and scary pleaces.  
+A site (inspired by airbnb) for users to browse, post, and comment on the world's most dangerous and scary places.  
 
 Live Site Link:
 https://dare-bnb.herokuapp.com/
