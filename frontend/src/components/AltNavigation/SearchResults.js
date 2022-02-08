@@ -40,7 +40,7 @@ function SearchResults(){
         <h1>Search Results ({count})</h1>
         {results[0]?.length ?
           results[0]?.map(result => (
-            <NavLink to={`/spots/${result.spotId}`}>
+            <NavLink to={`/spots/${result.id}`}>
               <div className="result_tile">
                 <p><i>Result from Spots:</i></p>
                 <h2>{result.name}</h2>
