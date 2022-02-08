@@ -5,13 +5,15 @@ import sessionReducer from "./session";
 import spotsReducer from "./spots";
 import reviewsReducer from  "./reviews"
 import usersReducer from "./users";
+import searchReducer from "./search"
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   spots: spotsReducer,
   maps: mapsReducer,
   reviews: reviewsReducer,
-  users: usersReducer
+  users: usersReducer,
+  search: searchReducer
 });
 
 let enhancer;
