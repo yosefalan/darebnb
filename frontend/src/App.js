@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage/LandingPage'
 import Anywhere from './components/Anywhere/Anywhere'
 import SpotPage from "./components/SpotPage/SpotPage";
 import Maps from "./components/Maps/Maps";
+import SearchResults from "./components/AltNavigation/SearchResults";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
       <Switch>
+
       <Route exact path='/'>
         <LandingPage />
       </Route>
@@ -24,6 +26,10 @@ function App() {
         <SpotPage />
       </Route>
 
+      <Route path='/results'>
+        <SearchResults />
+      </Route>
+
       <Route path='/maps'>
         <Maps />
       </Route>
@@ -31,6 +37,7 @@ function App() {
       <Route>
         <PageNotFound />
       </Route>
+
       </Switch>
 
     </>
