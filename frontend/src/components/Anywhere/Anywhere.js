@@ -12,11 +12,12 @@ function Anywhere() {
     dispatch(fetchSpots());
   }, [dispatch]);
 
+
   return (
       <div className="anywhereMainContainer">
         <div className="anywhereCenterContainer">
           <div className="anywhereNavContainer">
-            <AltNavigation/>
+            <AltNavigation />
           </div>
           <h1 className="anywhereHeading">Welcome to Anywhere!</h1>
 

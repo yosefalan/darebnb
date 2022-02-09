@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom'
 import UpdateSpot from "../UpdateSpot/UpdateSpot";
 import DeleteSpot from "../DeleteSpot/DeleteSpot";
 import Reviews from "../Reviews/Reviews";
+import Likes from "../Likes/Likes";
 
 function SpotPage() {
 
@@ -22,7 +23,7 @@ function SpotPage() {
   return (
     <div className="spotPageMainContainer">
       <div className="anywhereNavContainer">
-        <AltNavigation/>
+        <AltNavigation />
       </div>
       <div className="spotPageCenterContainer">
           <div className="spotPageTop">
@@ -68,6 +69,9 @@ function SpotPage() {
             </div>
             <div className="descriptionText">
               <p>{spot?.description}</p>
+            </div>
+            <div className="likesContainer">
+              <Likes spot={spot} />
             </div>
           </div>
             <Reviews spot={spot} sessionUser={sessionUser} />

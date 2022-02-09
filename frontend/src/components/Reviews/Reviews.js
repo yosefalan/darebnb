@@ -59,8 +59,8 @@ function Reviews({ spot, sessionUser }) {
 
   return (
   <>
-    <div className="reviewInput">
-      <div className="reviewInputCenter">
+    {/* <div className="reviewInput"> */}
+      <div className="reviewCenter">
         <form
           className="reviewForm"
           onSubmit={handleSubmit}>
@@ -75,43 +75,44 @@ function Reviews({ spot, sessionUser }) {
           className="reviewBtn"
           >Submit</button>
         </form>
-      </div>
-    </div>
-    <div className="reviewsContainer">
-      <div className="reviews">
-        {reviews?.map((review)  => {
-          return (
-            <div className="reviewTile">
-              <div className="reviewTileLeft">
-                <div className="reviewTileImgContainer">
-                {findUser(review?.userId)?.imageURL
-                ? <img
-                className="reviewTileImg"
-                src={findUser(review?.userId)?.imageURL
-                } alt=""></img>
-                : <div
-                className="faContainer"
-                ><i class="fas fa-user-circle"></i></div>
+
+    {/* </div> */}
+    {/* <div className="reviewsContainer"> */}
+        {/* <div className="reviews"> */}
+          {reviews?.map((review)  => {
+            return (
+              <div className="reviewTile">
+                <div className="reviewTileLeft">
+                  <div className="reviewTileImgContainer">
+                  {findUser(review?.userId)?.imageURL
+                  ? <img
+                  className="reviewTileImg"
+                  src={findUser(review?.userId)?.imageURL
+                  } alt=""></img>
+                  : <div
+                  className="faContainer"
+                  ><i class="fas fa-user-circle"></i></div>
+                  }
+                  </div >
+                  {findUser(review?.userId)?.username}
+                </div>
+                <div className="reviewTileBody">
+                  <p>{review?.review}</p>
+                </div>
+                <div className="reviewTileButtons">
+                {sessionUser?.id === review?.userId
+                ?  <UpdateReview review={review} spotId={spotId} />
+                // ? <button className="reviewBtn">Update</button>
+                :null}
+                {sessionUser?.id === review?.userId
+                ? <DeleteReview reviewId={review.id} spotId={spotId} />
+                : null
                 }
-                </div >
-                {findUser(review?.userId)?.username}
+                </div>
               </div>
-              <div className="reviewTileBody">
-                <p>{review?.review}</p>
-              </div>
-              <div className="reviewTileButtons">
-              {sessionUser?.id === review?.userId
-              ?  <UpdateReview review={review} spotId={spotId} />
-              // ? <button className="reviewBtn">Update</button>
-              :null}
-              {sessionUser?.id === review?.userId
-              ? <DeleteReview reviewId={review.id} spotId={spotId} />
-              : null
-              }
-              </div>
-            </div>
-          )})}
-      </div>
+            )})}
+        {/* </div> */}
+      {/* </div> */}
     </div>
   </>
   )

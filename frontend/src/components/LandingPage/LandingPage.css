@@ -84,12 +84,13 @@
   height: 50px;
   width: 150px;
   background-color: white;
-  border-radius: 25px;
+  border-radius: 15px;
   align-items: center;
   justify-content: center;
+  background-color: #FF4566;
   /* background: linear-gradient(0.25turn, #6F019C, #C6017E 75%); */
   /* background-clip: text; */
-  background: radial-gradient(circle at center center, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%)
+  /* background: radial-gradient(circle at center center, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%) */
 }
 
 .anywhereLink {
