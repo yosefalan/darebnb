@@ -49,6 +49,9 @@ module.exports = {
       price: {
         type: Sequelize.DECIMAL
       },
+      likes: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER)
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

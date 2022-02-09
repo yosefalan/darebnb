@@ -37,6 +37,9 @@ module.exports = (sequelize, DataTypes) => {
     price: {
       type: DataTypes.DECIMAL
     },
+    likes: {
+      type: DataTypes.ARRAY(DataTypes.INTEGER)
+    },
   }, {});
   Spot.associate = function(models) {
     Spot.belongsTo(models.User, { foreignKey: 'userId' });
