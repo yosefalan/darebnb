@@ -10,6 +10,8 @@ import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 function App() {
 
+
+
   return (
     <>
       <Switch>
@@ -19,15 +21,15 @@ function App() {
       </Route>
 
       <Route eaxact path='/anywhere'>
-        <Anywhere />
+        <Anywhere  />
       </Route>
 
       <Route path='/spots/:id'>
-        <SpotPage />
+        <SpotPage  />
       </Route>
 
-      <Route path='/results'>
-        <SearchResults />
+      <Route path='/results/:query'>
+        <SearchResults  />
       </Route>
 
       <Route path='/maps'>

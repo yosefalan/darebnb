@@ -5,7 +5,7 @@ import ProfileButton from '../ProfileButton/ProfileButton';
 import Search from "./Search"
 import './AltNavigation.css';
 
-function AltNavigation(){
+function AltNavigation({ queryString }){
   const sessionUser = useSelector(state => state.session.user);
 
   return (
@@ -14,7 +14,7 @@ function AltNavigation(){
         <div className="navLogoContainer">
           <NavLink exact to="/"><img className="navLogo" src={'/images/logo_complete_red.png'} alt="logo"></img></NavLink>
         </div>
-        <Search />
+        <div className="navSearch"><Search queryString={queryString} /></div>
         <div className="sessionLinks">
           <ProfileButton user={sessionUser} />
         </div>

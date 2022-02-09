@@ -128,7 +128,8 @@
 
 
 .description {
-  /* height: 100px; */
+  margin-top: 20px;
+  height: 120px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -149,8 +150,19 @@
 .descriptionText {
   font-size: 20px;
   margin-left: 20px;
-  width: 500px;
+  width: 725px;
 }
+
+.likesContainer {
+  width: 400px;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+}
+
+
 
 .reviewsContainer {
   display: flex;
