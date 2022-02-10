@@ -17,27 +17,26 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 #modal-content {
   display: flex;
   flex-direction: column;
   position: absolute;
-  background-color:white;
   border-radius: 10px;
   -webkit-animation-name: animateModal;
   -webkit-animation-duration: 1s;
   animation-name: animateModal;
-  animation-duration: 1s
+  animation-duration: 1.5s;
 }
 
 @-webkit-keyframes animateModal {
-  from {bottom: -300px; opacity:0}
-  to {bottom: 135px; opacity:1}
+  from {bottom: -300%; opacity:0}
+  to {bottom: 21%; opacity:1}
 }
 
 @keyframes animateModal {
-  from {bottom:-300px; opacity:0}
-  to {bottom: 135px; opacity:1}
+  from {bottom:-300%; opacity:0}
+  to {bottom: 21%; opacity:1}
 }
