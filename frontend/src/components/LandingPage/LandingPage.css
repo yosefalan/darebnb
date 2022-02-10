@@ -3,14 +3,21 @@
 } */
 
 
+body {
+  overflow-x: hidden;
+  /* background: linear-gradient(rgb(0, 0, 0, 1), rgb(0, 0, 0, .75)) */
+}
+
 .landingImgContainer {
-  width: 100%;
-  height: 70vh;
-  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
   position: absolute;
+
 }
 
 .landingImgGrad {
+  overflow: hidden;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -18,6 +25,7 @@
 }
 
 .landingImg {
+  overflow: hidden;
   width: 100%;
   position: absolute;
   }
@@ -28,7 +36,7 @@
 
 .imgWrap {
   width: 100%;
-  height: 70vw;
+  height: 100vw;
   margin: 0 auto;
   overflow: hidden;
   position: relative;

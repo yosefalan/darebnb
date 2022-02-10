@@ -22,6 +22,7 @@ function Search({ queryString }){
   return (
     <div className="search">
         <form
+        className="searchForm"
         onSubmit={handleSearch}
         >
           <input

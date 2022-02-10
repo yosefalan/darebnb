@@ -1,20 +1,26 @@
 
 .formContainer {
+
+  background-color: rgba(255, 255, 255, 0.5);
   height: 550px;
   width: 450px;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
+  border-radius: 15px;
 }
 
 .form {
+  background: no-repeat center/100% url("./darewht.png");
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 80%;
+  opacity: 0.5;
+  /* background-color: pink; */
 }
 
 .field {
@@ -39,18 +45,21 @@
 }
 
 .demoLoginButton {
+  background-color: #FF4566;
   height: 30px;
   width: 100%;
   margin: 7px 0px 7px 0px
 }
 
 .loginSubmitButton {
+  background-color: #FF4566;
   height: 30px;
   width: 100%;
   margin: 7px 0px 7px 0px
 }
 
 .signupSubmitButton {
+  background-color: #FF4566;
   height: 30px;
   width: 100%;
   margin: 7px 0px 7px 0px
