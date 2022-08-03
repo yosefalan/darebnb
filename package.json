@@ -17,9 +17,11 @@
   "license": "ISC",
   "proxy": "http://localhost:5000",
   "dependencies": {
-    "sequelize-cli": "^6.3.0"
+    "sequelize": "^6.21.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "sequelize-cli": "^6.4.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yosefalan/darebnb.git"
